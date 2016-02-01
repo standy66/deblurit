@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DeblurIt.iml" filepath="$PROJECT_DIR$/DeblurIt.iml" />
       <module fileurl="file://$PROJECT_DIR$/deblurIt/deblurIt.iml" filepath="$PROJECT_DIR$/deblurIt/deblurIt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/deblurit_legacy.iml" filepath="$PROJECT_DIR$/deblurit_legacy.iml" />
     </modules>
   </component>
 </project>

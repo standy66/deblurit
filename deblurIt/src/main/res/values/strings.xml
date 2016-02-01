@@ -1,4 +1,6 @@
-<resources>
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation" >>
     <string name="pref_acra_syslog">Send crash reports</string>
     <string name="pref_acra_syslog_summary">If application crashes, information will be sent to developers.</string>
     
