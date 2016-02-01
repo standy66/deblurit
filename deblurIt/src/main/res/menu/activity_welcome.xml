@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <item android:id="@+id/menu_settings"
+        android:title="@string/menu_settings"
+        android:showAsAction="never" />
+    
+    <item android:id="@+id/menu_feedback"
+        android:title="@string/menu_feedback"
+        android:showAsAction="never" />
+    
+    <item android:id="@+id/menu_about"
+        android:title="@string/menu_about"
+        android:showAsAction="never" />
+    
+    <item android:id="@+id/menu_rateapp"
+        android:title="@string/menu_rateapp"
+        android:showAsAction="never" />
+    
+    <item android:id="@+id/menu_help"
+        android:title="@string/menu_help"
+        android:showAsAction="never" />
+</menu>

@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\camera.png",
+        "source": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\drawable-xxhdpi\\camera.png"
+    },
+    {
+        "merged": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\start_logo.png",
+        "source": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\drawable-xxhdpi\\start_logo.png"
+    },
+    {
+        "merged": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\folder.png",
+        "source": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\drawable-xxhdpi\\folder.png"
+    },
+    {
+        "merged": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\arrow.png",
+        "source": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\drawable-xxhdpi\\arrow.png"
+    }
+]

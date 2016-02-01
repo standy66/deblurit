@@ -1,0 +1,18 @@
+<resources>
+
+	<dimen name="preview_padding">7dip</dimen>
+	<dimen name="preview_seekbar_padding_horizontal">4dip</dimen>
+	<dimen name="preview_seekbar_padding_vertical">11dip</dimen>
+	<dimen name="preview_label_row_width">90dip</dimen>
+	<dimen name="preview_title_padding">8dip</dimen>
+	<dimen name="preview_size">200dip</dimen>
+	<dimen name="preview_left_padding">10dip</dimen>
+	<dimen name="textsize_title">9pt</dimen>
+	<dimen name="textsize_normal">8pt</dimen>
+	<dimen name="preview_checkbox_margin">7dip</dimen>
+	<dimen name="spinner_header_textsize">14dip</dimen>
+	<dimen name="spinner_addinfo_textsize">12dip</dimen>
+    <dimen name="welcome_logo_bottomPadding">5dip</dimen>
+        <dimen name="welcome_padding_right">15dip</dimen>
+
+</resources>

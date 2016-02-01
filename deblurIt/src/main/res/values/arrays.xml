@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>    
+    <string-array name="formats">
+		<item>JPEG</item>
+		<item>PNG</item>
+    </string-array>
+    <string-array name="proc_modes">
+		<item>Ask</item>
+		<item>Manual</item>
+		<item>Auto</item>
+    </string-array>
+    <string-array name="modes_localized">
+		<item>Ask</item>
+		<item>Manual</item>
+		<item>Auto</item>
+    </string-array>
+    <string-array name="modes">
+        <item>Unsharp mask</item>
+        <item>Deconvolution</item>
+    </string-array>
+    <string-array name="mode_descriptions">
+        <item>Removes small defects</item>
+        <item>Removes large defects</item>
+    </string-array>
+    <string-array name="blur_types">
+        <item>Out of focus blur</item>
+        <item>Gaussian blur</item>
+        <item>Motion blur</item>
+    </string-array>
+    <string-array name="feedback_type">
+        <item>Crash</item>
+        <item>Bug</item>
+        <item>Suggestion</item>
+        <item>Other</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,330 @@
+[
+    {
+        "outputFile": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\build\\intermediates\\res\\merged\\debug\\values-large-v4\\values-large-v4.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 44,
+                    "endOffset": 95
+                },
+                "from": {
+                    "file": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 683,
+                        "endColumn": 44,
+                        "endOffset": 723
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 100,
+                    "endColumn": 45,
+                    "endOffset": 141
+                },
+                "from": {
+                    "file": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 729,
+                        "endColumn": 45,
+                        "endOffset": 770
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 146,
+                    "endColumn": 43,
+                    "endOffset": 185
+                },
+                "from": {
+                    "file": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 776,
+                        "endColumn": 43,
+                        "endOffset": 815
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 190,
+                    "endColumn": 55,
+                    "endOffset": 241
+                },
+                "from": {
+                    "file": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 511,
+                        "endColumn": 55,
+                        "endOffset": 562
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 246,
+                    "endColumn": 56,
+                    "endOffset": 298
+                },
+                "from": {
+                    "file": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 202,
+                        "endColumn": 56,
+                        "endOffset": 254
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 303,
+                    "endColumn": 52,
+                    "endOffset": 351
+                },
+                "from": {
+                    "file": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 362,
+                        "endColumn": 52,
+                        "endOffset": 410
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 356,
+                    "endColumn": 47,
+                    "endOffset": 399
+                },
+                "from": {
+                    "file": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 19,
+                        "endColumn": 47,
+                        "endOffset": 62
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 404,
+                    "endColumn": 66,
+                    "endOffset": 466
+                },
+                "from": {
+                    "file": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 68,
+                        "endColumn": 66,
+                        "endOffset": 130
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 471,
+                    "endColumn": 64,
+                    "endOffset": 531
+                },
+                "from": {
+                    "file": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 136,
+                        "endColumn": 64,
+                        "endOffset": 196
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 536,
+                    "endColumn": 45,
+                    "endOffset": 577
+                },
+                "from": {
+                    "file": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 315,
+                        "endColumn": 45,
+                        "endOffset": 356
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 582,
+                    "endColumn": 53,
+                    "endOffset": 631
+                },
+                "from": {
+                    "file": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 260,
+                        "endColumn": 53,
+                        "endOffset": 309
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 636,
+                    "endColumn": 56,
+                    "endOffset": 688
+                },
+                "from": {
+                    "file": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 625,
+                        "endColumn": 56,
+                        "endOffset": 677
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 693,
+                    "endColumn": 55,
+                    "endOffset": 744
+                },
+                "from": {
+                    "file": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 568,
+                        "endColumn": 55,
+                        "endOffset": 619
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 749,
+                    "endColumn": 46,
+                    "endOffset": 791
+                },
+                "from": {
+                    "file": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 463,
+                        "endColumn": 46,
+                        "endOffset": 505
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 796,
+                    "endColumn": 45,
+                    "endOffset": 837
+                },
+                "from": {
+                    "file": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 416,
+                        "endColumn": 45,
+                        "endOffset": 457
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 842,
+                    "endColumn": 58,
+                    "endOffset": 896
+                },
+                "from": {
+                    "file": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 821,
+                        "endColumn": 58,
+                        "endOffset": 875
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 901,
+                    "endColumn": 53,
+                    "endOffset": 950
+                },
+                "from": {
+                    "file": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\values-large\\dimens.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 8,
+                        "startOffset": 885,
+                        "endColumn": 57,
+                        "endOffset": 934
+                    }
+                }
+            }
+        ]
+    }
+]

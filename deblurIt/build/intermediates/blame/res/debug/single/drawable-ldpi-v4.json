@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\camera.png",
+        "source": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\drawable-ldpi\\camera.png"
+    },
+    {
+        "merged": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\folder.png",
+        "source": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\drawable-ldpi\\folder.png"
+    },
+    {
+        "merged": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\arrow.png",
+        "source": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\drawable-ldpi\\arrow.png"
+    },
+    {
+        "merged": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\start_logo.png",
+        "source": "C:\\Users\\KarN\\StudioProjects\\DeblurIt\\deblurIt\\src\\main\\res\\drawable-ldpi\\start_logo.png"
+    }
+]

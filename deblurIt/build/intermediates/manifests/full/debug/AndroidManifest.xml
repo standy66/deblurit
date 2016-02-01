@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="tk.standy66.deblurit"
+    android:versionCode="21"
+    android:versionName="1.1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="16" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.vending.CHECK_LICENSE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <application
+        android:name="tk.standy66.deblurit.DeblurItApplication"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@style/Theme.Sherlock" >
+        <activity
+            android:name="org.acra.CrashReportDialog"
+            android:excludeFromRecents="true"
+            android:finishOnTaskLaunch="true"
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name="tk.standy66.deblurit.UnsharpPreviewActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_unsharp_preview_activity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="tk.standy66.deblurit.DeconvolutionPreviewActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_deconvolution_preview_activity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="tk.standy66.deblurit.ProgressActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/title_progress_activity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="tk.standy66.deblurit.FinishActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/title_finish_activity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <service android:name="tk.standy66.deblurit.ProcessingService" >
+        </service>
+
+        <activity
+            android:name="tk.standy66.deblurit.GlobalPreferenceActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/title_prefernces_activity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="tk.standy66.deblurit.FeedbackActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/title_activity_feedback"
+            android:theme="@android:style/Theme.Dialog" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="tk.standy66.deblurit.AboutActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/title_activity_about"
+            android:theme="@android:style/Theme.Dialog" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="tk.standy66.deblurit.TextViewerActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/title_activity_text_viewer"
+            android:theme="@android:style/Theme.Dialog" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="tk.standy66.deblurit.WelcomeActivity"
+            android:label="@string/title_activity_welcome" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="tk.standy66.deblurit.HelpActivity"
+            android:label="@string/title_help_activity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

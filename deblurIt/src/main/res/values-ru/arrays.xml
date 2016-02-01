@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>    
+    <string-array name="modes_localized">
+		<item>Спросить</item>
+		<item>Ручной</item>
+		<item>Автоматический</item>
+    </string-array>
+    <string-array name="mode_descriptions">
+        <item>Устраняет небольшие дефекты</item>
+        <item>Устраняет заметные дефекты</item>
+    </string-array>
+    <string-array name="blur_types">
+        <item>Объект не в фокусе</item>
+        <item>Гауссово размытие</item>
+        <item>Размытие в движении</item>
+    </string-array>
+    <string-array name="feedback_type">
+        <item>Ошибка</item>
+        <item>Баг</item>
+        <item>Предложение</item>
+        <item>Прочее</item>
+    </string-array>
+</resources>

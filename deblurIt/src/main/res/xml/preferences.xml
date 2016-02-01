@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+     <EditTextPreference android:key="@string/key_save_path" android:title="@string/name_save_path_preference"/>
+     <EditTextPreference android:key="@string/key_max_output" android:title="@string/name_max_output_preference" android:numeric="integer"/>
+     <ListPreference android:key="@string/key_format" android:title="@string/name_format_preference" android:entries="@array/formats" android:entryValues="@array/formats"/>
+     <ListPreference android:key="@string/mode" android:title="@string/name_mode" android:entries="@array/proc_modes" android:entryValues="@array/proc_modes"/>
+     <CheckBoxPreference android:key="acra.syslog.enable" android:summary="@string/pref_acra_syslog_summary" android:title="@string/pref_acra_syslog" android:defaultValue="true"/>
+</PreferenceScreen>

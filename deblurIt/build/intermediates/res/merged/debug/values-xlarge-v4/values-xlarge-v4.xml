@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="abs__action_bar_default_height">56dip</dimen>
+    <dimen name="abs__action_bar_icon_vertical_padding">4dip</dimen>
+    <dimen name="abs__action_bar_subtitle_bottom_margin">9dip</dimen>
+    <dimen name="abs__action_bar_subtitle_text_size">14dp</dimen>
+    <dimen name="abs__action_bar_subtitle_top_margin">-3dp</dimen>
+    <dimen name="abs__action_bar_title_text_size">18dp</dimen>
+    <dimen name="abs__action_button_min_width">64dip</dimen>
+    <item name="abs__dialog_min_width_major" type="dimen">45%</item>
+    <item name="abs__dialog_min_width_minor" type="dimen">72%</item>
+    <dimen name="preview_checkbox_margin">20dip</dimen>
+    <dimen name="preview_label_row_width">150dip</dimen>
+    <dimen name="preview_left_padding">15dip</dimen>
+    <dimen name="preview_padding">20dip</dimen>
+    <dimen name="preview_seekbar_padding_horizontal">10dip</dimen>
+    <dimen name="preview_seekbar_padding_vertical">50dip</dimen>
+    <dimen name="preview_size">200dip</dimen>
+    <dimen name="preview_title_padding">15dip</dimen>
+    <dimen name="spinner_addinfo_textsize">16dip</dimen>
+    <dimen name="spinner_header_textsize">18dip</dimen>
+    <dimen name="textsize_normal">14pt</dimen>
+    <dimen name="textsize_title">16pt</dimen>
+    <dimen name="welcome_logo_bottomPadding">90dip</dimen>
+    <dimen name="welcome_padding_right">40dip</dimen>
+</resources>
