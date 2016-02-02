@@ -27,5 +27,11 @@ public class FeedbackActivity extends Activity {
         email = (EditText)findViewById(R.id.field_email);
         message = (EditText)findViewById(R.id.field_message);
         feedbackType = (Spinner)findViewById(R.id.spinner_bugtype);
+        sendButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(FeedbackActivity.this, "Not implemented", Toast.LENGTH_LONG).show();
+            }
+        });
     }   
 }
