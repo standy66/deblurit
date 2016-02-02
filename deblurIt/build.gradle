@@ -24,7 +24,6 @@ android {
 }
 
 dependencies {
-//    compile project(':lVL')
     compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
     compile "com.android.support:support-v4:23.1.1"
     compile files('libs/acra-4.3.0.jar')
