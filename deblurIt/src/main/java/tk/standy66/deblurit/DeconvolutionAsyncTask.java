@@ -1,9 +1,10 @@
 package tk.standy66.deblurit;
 
+import android.os.AsyncTask;
+
 import tk.standy66.deblurit.filtering.Pipeline;
 import tk.standy66.deblurit.tools.Image;
 import tk.standy66.deblurit.tools.LibImageFilters;
-import android.os.AsyncTask;
 
 public class DeconvolutionAsyncTask extends AsyncTask<Object, Integer, Image> {
 

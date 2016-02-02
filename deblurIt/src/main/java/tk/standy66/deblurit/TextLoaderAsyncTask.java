@@ -1,14 +1,11 @@
 package tk.standy66.deblurit;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-
-import tk.standy66.deblurit.R;
-
 import android.os.AsyncTask;
 import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class TextLoaderAsyncTask extends AsyncTask<String, Integer, String> {
 

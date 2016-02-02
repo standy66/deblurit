@@ -1,24 +1,22 @@
 package tk.standy66.deblurit;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
-import com.actionbarsherlock.app.SherlockActivity;
-
-import tk.standy66.deblurit.R;
-import tk.standy66.deblurit.ProcessingService.ProcessingServiceBinder;
-import tk.standy66.deblurit.ProcessingService.ProcessingServiceResultListener;
-import android.os.Bundle;
-import android.os.IBinder;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.widget.TextView;
 
+import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
-import android.widget.TextView;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import tk.standy66.deblurit.ProcessingService.ProcessingServiceBinder;
+import tk.standy66.deblurit.ProcessingService.ProcessingServiceResultListener;
 
 public class ProgressActivity extends SherlockActivity implements ProcessingServiceResultListener {
 	

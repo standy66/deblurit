@@ -1,19 +1,15 @@
 package tk.standy66.deblurit.filtering.blur;
 
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Bitmap.Config;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
-import android.util.FloatMath;
 import android.util.Log;
-import tk.standy66.deblurit.filtering.filters.WienerFilter;
+
 import tk.standy66.deblurit.tools.Image;
-import tk.standy66.deblurit.tools.Utils;
-import tk.standy66.deblurit.tools.Image.ImageType;
 
 public class OutOfFocusBlur extends Blur {
 

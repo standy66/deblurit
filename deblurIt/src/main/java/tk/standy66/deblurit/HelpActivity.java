@@ -1,17 +1,11 @@
 package tk.standy66.deblurit;
 
-import tk.standy66.deblurit.R;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.text.Html;
+import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockActivity;
-
-import android.os.Bundle;
-import android.app.Activity;
-import android.graphics.drawable.Drawable;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.TextView;
-import android.support.v4.app.NavUtils;
-import android.text.Html;
 
 public class HelpActivity extends SherlockActivity {
 

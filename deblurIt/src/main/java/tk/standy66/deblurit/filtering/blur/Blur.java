@@ -1,6 +1,7 @@
 package tk.standy66.deblurit.filtering.blur;
 
 import android.os.Parcelable;
+
 import tk.standy66.deblurit.tools.Image;
 
 public abstract class Blur implements Parcelable {

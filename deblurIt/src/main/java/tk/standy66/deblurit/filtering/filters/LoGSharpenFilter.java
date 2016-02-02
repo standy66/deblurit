@@ -2,9 +2,7 @@ package tk.standy66.deblurit.filtering.filters;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
-import tk.standy66.deblurit.filtering.blur.Blur;
-import tk.standy66.deblurit.filtering.blur.GaussianBlur;
+
 import tk.standy66.deblurit.tools.Image;
 import tk.standy66.deblurit.tools.LibImageFilters;
 

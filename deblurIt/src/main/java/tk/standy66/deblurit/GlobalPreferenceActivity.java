@@ -1,24 +1,18 @@
 package tk.standy66.deblurit;
 
-import tk.standy66.deblurit.R;
-import tk.standy66.deblurit.tools.App;
-import tk.standy66.deblurit.tools.Defaults;
 import android.annotation.TargetApi;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Resources;
-import android.net.wifi.p2p.WifiP2pManager.Channel;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
-import android.text.Editable;
-import android.text.InputType;
-import android.text.TextWatcher;
 import android.util.Log;
+
+import tk.standy66.deblurit.tools.App;
+import tk.standy66.deblurit.tools.Defaults;
 
 public class GlobalPreferenceActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener
 {

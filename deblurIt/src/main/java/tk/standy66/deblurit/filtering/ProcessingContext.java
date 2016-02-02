@@ -1,6 +1,5 @@
 package tk.standy66.deblurit.filtering;
 
-import tk.standy66.deblurit.filtering.blur.Blur;
 import android.graphics.Rect;
 import android.os.Parcel;
 import android.os.Parcelable;

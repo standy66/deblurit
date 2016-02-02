@@ -1,6 +1,19 @@
 package tk.standy66.deblurit;
 
-import tk.standy66.deblurit.R;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.Spinner;
+import android.widget.TextView;
+
 import tk.standy66.deblurit.filtering.Pipeline;
 import tk.standy66.deblurit.filtering.ProcessingContext;
 import tk.standy66.deblurit.filtering.blur.Blur;
@@ -10,20 +23,6 @@ import tk.standy66.deblurit.filtering.blur.MotionBlur;
 import tk.standy66.deblurit.filtering.blur.OutOfFocusBlur;
 import tk.standy66.deblurit.filtering.filters.Filter;
 import tk.standy66.deblurit.filtering.filters.WienerFilter;
-import tk.standy66.deblurit.tools.Image;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.SeekBar.OnSeekBarChangeListener;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.ImageView;
-import android.widget.SeekBar;
-import android.widget.Spinner;
-import android.widget.TextView;
 
 public class DeconvolutionPreviewActivity extends PreviewActivity {
 	

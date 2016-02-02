@@ -1,12 +1,12 @@
 package tk.standy66.deblurit.tools;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class Settings {
 

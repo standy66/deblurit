@@ -1,15 +1,14 @@
 package tk.standy66.deblurit.filtering.blur;
 
-import tk.standy66.deblurit.tools.Image;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.Bitmap.Config;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
-import android.util.FloatMath;
+
+import tk.standy66.deblurit.tools.Image;
 
 public class MotionBlur extends Blur {
 	

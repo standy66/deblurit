@@ -2,9 +2,7 @@ package tk.standy66.deblurit.filtering.blur;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
-import android.util.FloatMath;
-import tk.standy66.deblurit.filtering.filters.WienerFilter;
+
 import tk.standy66.deblurit.tools.Image;
 import tk.standy66.deblurit.tools.Image.ImageType;
 import tk.standy66.deblurit.tools.Utils;

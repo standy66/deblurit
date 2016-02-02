@@ -1,17 +1,5 @@
 package tk.standy66.deblurit;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
-import tk.standy66.deblurit.R;
-import tk.standy66.deblurit.filtering.Pipeline;
-import tk.standy66.deblurit.tools.App;
-import tk.standy66.deblurit.tools.GlobalSettings;
-import tk.standy66.deblurit.tools.LibImageFilters;
 import android.app.IntentService;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -19,7 +7,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Bitmap.CompressFormat;
 import android.os.Binder;
 import android.os.Environment;
@@ -29,6 +16,17 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import tk.standy66.deblurit.filtering.Pipeline;
+import tk.standy66.deblurit.tools.App;
+import tk.standy66.deblurit.tools.GlobalSettings;
+import tk.standy66.deblurit.tools.LibImageFilters;
 
 public class ProcessingService extends IntentService {
 	

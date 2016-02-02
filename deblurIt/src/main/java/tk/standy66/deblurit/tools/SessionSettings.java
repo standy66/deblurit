@@ -1,7 +1,6 @@
 package tk.standy66.deblurit.tools;
 
 import tk.standy66.deblurit.R;
-import android.app.Application;
 
 public class SessionSettings extends Settings {
 	

@@ -1,8 +1,8 @@
 package tk.standy66.deblurit.filtering;
 
-import tk.standy66.deblurit.tools.Image;
 import android.graphics.Rect;
-import android.util.Log;
+
+import tk.standy66.deblurit.tools.Image;
 
 public class PostProcessingTool implements Runnable {
 

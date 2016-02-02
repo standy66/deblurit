@@ -1,6 +1,5 @@
 package tk.standy66.deblurit.tools;
 
-import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;

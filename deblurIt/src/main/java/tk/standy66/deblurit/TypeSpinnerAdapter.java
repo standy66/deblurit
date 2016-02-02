@@ -1,7 +1,5 @@
 package tk.standy66.deblurit;
 
-import tk.standy66.deblurit.R;
-import tk.standy66.deblurit.tools.Image;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
@@ -11,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import tk.standy66.deblurit.tools.Image;
 
 public class TypeSpinnerAdapter extends ArrayAdapter<String> {
 

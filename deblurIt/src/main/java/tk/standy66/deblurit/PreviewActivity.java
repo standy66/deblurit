@@ -1,5 +1,24 @@
 package tk.standy66.deblurit;
 
+import android.app.ActionBar;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
+import android.util.Pair;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.actionbarsherlock.app.ActionBar.OnNavigationListener;
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.view.Window;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -9,10 +28,6 @@ import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.acra.ACRA;
-
-import tk.standy66.deblurit.R;
-import tk.standy66.deblurit.filtering.Pipeline;
 import tk.standy66.deblurit.tools.App;
 import tk.standy66.deblurit.tools.GlobalSettings;
 import tk.standy66.deblurit.tools.Image;
@@ -21,28 +36,6 @@ import tk.standy66.deblurit.tools.MutableDouble;
 import tk.standy66.deblurit.tools.SessionSettings;
 import tk.standy66.deblurit.tools.Utils;
 import tk.standy66.widgets.ScrollablePreview;
-import tk.standy66.widgets.ScrollablePreview.ScrollMode;
-import com.actionbarsherlock.app.ActionBar.OnNavigationListener;
-import com.actionbarsherlock.app.SherlockActivity;
-
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.app.ActionBar;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Bitmap.CompressFormat;
-import android.util.Log;
-import android.util.Pair;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.view.Window;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 
 public class PreviewActivity extends SherlockActivity implements OnNavigationListener {

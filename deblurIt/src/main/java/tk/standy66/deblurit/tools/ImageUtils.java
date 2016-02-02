@@ -1,16 +1,15 @@
 package tk.standy66.deblurit.tools;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import tk.standy66.deblurit.R;
-
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.util.Log;
 import android.widget.Toast;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import tk.standy66.deblurit.R;
 
 public final class ImageUtils {
 	public static Bitmap decodeFileScaled(Uri uri, int maxDimen, boolean strict, MutableDouble outScaling) throws IOException {

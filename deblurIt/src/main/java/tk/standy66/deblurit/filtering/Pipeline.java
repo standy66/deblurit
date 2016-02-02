@@ -1,20 +1,15 @@
 package tk.standy66.deblurit.filtering;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-
-
-import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
 import android.util.Log;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import tk.standy66.deblurit.filtering.filters.Filter;
-import tk.standy66.deblurit.filtering.filters.SharpenFilter;
 import tk.standy66.deblurit.tools.App;
 import tk.standy66.deblurit.tools.GlobalSettings;
 import tk.standy66.deblurit.tools.Image;

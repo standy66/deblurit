@@ -1,11 +1,10 @@
 package tk.standy66.deblurit.filtering;
 
-import tk.standy66.deblurit.filtering.blur.Blur;
-import tk.standy66.deblurit.tools.Image;
-import tk.standy66.deblurit.tools.Image.ImageType;
-import android.graphics.Color;
 import android.graphics.Rect;
 import android.util.Log;
+
+import tk.standy66.deblurit.tools.Image;
+import tk.standy66.deblurit.tools.Image.ImageType;
 
 public class PreProcessingTool implements Runnable {
 

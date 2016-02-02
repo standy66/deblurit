@@ -1,24 +1,20 @@
 package tk.standy66.deblurit;
 
-import java.io.File;
-
-import tk.standy66.deblurit.R;
-
-import com.actionbarsherlock.app.SherlockActivity;
-
-import android.net.Uri;
-import android.os.Bundle;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-
+import android.net.Uri;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+
+import java.io.File;
 
 public class FinishActivity extends SherlockActivity {
 	

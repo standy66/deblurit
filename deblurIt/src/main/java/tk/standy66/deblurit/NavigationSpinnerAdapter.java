@@ -1,6 +1,5 @@
 package tk.standy66.deblurit;
 
-import tk.standy66.deblurit.R;
 import android.content.Context;
 import android.util.Pair;
 import android.view.LayoutInflater;
