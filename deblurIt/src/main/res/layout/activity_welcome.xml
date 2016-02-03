@@ -13,9 +13,10 @@
 
         <ImageView
             android:id="@+id/welcomeLogo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/start_logo"
+            android:layout_width="192dp"
+            android:layout_height="192dp"
+            android:src="@drawable/web_hi_res_512"
+            android:scaleType="fitXY"
             android:paddingBottom="@dimen/welcome_logo_bottomPadding" />
 
         <LinearLayout
@@ -26,27 +27,21 @@
 
                 <TextView
                     android:id="@+id/take_photo_button"
-                    android:drawableTop="@drawable/camera"
+                    android:drawableTop="@drawable/ic_add_a_photo_black_48dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/welcome_takephoto"
-                    android:paddingRight="@dimen/welcome_padding_right" />
+                    android:padding="@dimen/welcome_padding_right" />
 
                 <TextView
                     android:id="@+id/open_file_button"
-                    android:drawableTop="@drawable/folder"
+                    android:drawableTop="@drawable/ic_folder_open_black_48dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/welcome_open"
-                    android:paddingRight="@dimen/welcome_padding_right" />
+                    android:padding="@dimen/welcome_padding_right" />
                 
-                
-                <TextView
-                    android:id="@+id/previous_button"
-                    android:drawableTop="@drawable/arrow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/welcome_previous" />
+
         </LinearLayout>
     </LinearLayout>
 

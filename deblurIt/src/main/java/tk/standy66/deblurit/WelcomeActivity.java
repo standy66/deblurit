@@ -156,7 +156,7 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
         TextView takePhoto = (TextView)findViewById(R.id.take_photo_button);
         TextView openFile = (TextView)findViewById(R.id.open_file_button);
-        TextView previous = (TextView)findViewById(R.id.previous_button);
+//        TextView previous = (TextView)findViewById(R.id.previous_button);
         
         takePhoto.setOnClickListener(new OnClickListener() {			
             public void onClick(View v) {
@@ -223,14 +223,15 @@ public class WelcomeActivity extends AppCompatActivity {
                 }
             }
         });
-        previous.setOnClickListener(new OnClickListener() {			
-            public void onClick(View v) {
-                if (blocker)
-                    return;
-                Intent i = new Intent(WelcomeActivity.this, DeconvolutionPreviewActivity.class);
-                startActivity(i);
-            }
-        });
+
+//        previous.setOnClickListener(new OnClickListener() {
+//            public void onClick(View v) {
+//                if (blocker)
+//                    return;
+//                Intent i = new Intent(WelcomeActivity.this, DeconvolutionPreviewActivity.class);
+//                startActivity(i);
+//            }
+//        });
     }    
 
     @Override
