@@ -2,12 +2,11 @@ package tk.standy66.deblurit;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.SherlockActivity;
-
-public class HelpActivity extends SherlockActivity {
+public class HelpActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

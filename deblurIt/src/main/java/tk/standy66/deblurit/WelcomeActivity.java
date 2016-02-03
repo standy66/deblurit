@@ -9,15 +9,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -36,7 +35,7 @@ import tk.standy66.deblurit.tools.App;
 import tk.standy66.deblurit.tools.GlobalSettings;
 import tk.standy66.deblurit.tools.Utils;
 
-public class WelcomeActivity extends SherlockActivity {
+public class WelcomeActivity extends AppCompatActivity {
 
     private static final String BASE64_PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAimIy2EAQ4mXpHexUpR3V4GEQn2z9rEb2pN+JXEuc2jPToyLL5/X8hmYqIOrPE5Hba9I1IrJjfYaAH6IZ7NJ1SFpt5B1caT97qsVuGzAXzBVHXfVAjYPpXzSO6WrbiJrP2aBe6krQFjQiIirO1mmfLsWZ459tCmPVQ3zcn+f0Svi0K16oIztX4aADeHO9iytstpZm4WSeM5JCoJVCIVMvECTZa7qw2AR9SDu4EYP/IdliajZyPH0gAJknC8ZLWa7oZ2wODGVOoeAA8orHwctmt/K5pzxu7OsDY8AW6ZgoJrg1GNql4UZU/zbva1piEssE7kn6jjVy2Fa6+hRrZpWxGwIDAQAB";
     
@@ -238,7 +237,7 @@ public class WelcomeActivity extends SherlockActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
     	
     	
-    	getSherlock().getMenuInflater().inflate(R.menu.activity_welcome, menu);
+    	getMenuInflater().inflate(R.menu.activity_welcome, menu);
         return true;
     }
     

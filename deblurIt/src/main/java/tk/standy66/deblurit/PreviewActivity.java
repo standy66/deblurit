@@ -1,6 +1,6 @@
 package tk.standy66.deblurit;
 
-import android.app.ActionBar;
+import android.support.v7.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
@@ -8,16 +8,14 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.Pair;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.Toast;
-
-import com.actionbarsherlock.app.ActionBar.OnNavigationListener;
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.view.Window;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -38,7 +36,7 @@ import tk.standy66.deblurit.tools.Utils;
 import tk.standy66.widgets.ScrollablePreview;
 
 
-public class PreviewActivity extends SherlockActivity implements OnNavigationListener {
+public class PreviewActivity extends AppCompatActivity implements ActionBar.OnNavigationListener {
 	ImageView previewImage;
 
 	private static final int PICKFILE_RESULT_CODE = 1;
@@ -58,11 +56,11 @@ public class PreviewActivity extends SherlockActivity implements OnNavigationLis
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-          	
-        App.setApplicationContext(getApplicationContext());
-        
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+
+        super.onCreate(savedInstanceState);
+
+        App.setApplicationContext(getApplicationContext());
         
 		if (layoutId != 0)
 			setContentView(layoutId);
@@ -236,7 +234,7 @@ public class PreviewActivity extends SherlockActivity implements OnNavigationLis
     public boolean onCreateOptionsMenu(Menu menu) {
     	
     	
-    	getSherlock().getMenuInflater().inflate(R.menu.activity_main, menu);
+    	getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
     }
     
@@ -296,6 +294,7 @@ public class PreviewActivity extends SherlockActivity implements OnNavigationLis
     	switch (requestCode) {
 			case PICKFILE_RESULT_CODE:
 				if (data.getData() != null)
+					Log.i("PreviewActivity", Utils.getRealPathFromURI(data.getData()));
 					f = new File(Utils.getRealPathFromURI(data.getData()));
 				break;			
 			case TAKEPHOTO_RESULT_CODE:

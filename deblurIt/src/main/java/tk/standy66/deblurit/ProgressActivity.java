@@ -6,11 +6,10 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
-
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -18,7 +17,7 @@ import java.util.TimerTask;
 import tk.standy66.deblurit.ProcessingService.ProcessingServiceBinder;
 import tk.standy66.deblurit.ProcessingService.ProcessingServiceResultListener;
 
-public class ProgressActivity extends SherlockActivity implements ProcessingServiceResultListener {
+public class ProgressActivity extends AppCompatActivity implements ProcessingServiceResultListener {
 	
 
 	private ProcessingServiceBinder binder;
@@ -68,7 +67,7 @@ public class ProgressActivity extends SherlockActivity implements ProcessingServ
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-    	getSherlock().getMenuInflater().inflate(R.menu.activity_progress, menu);
+    	getMenuInflater().inflate(R.menu.activity_progress, menu);
         return true;
     }
 

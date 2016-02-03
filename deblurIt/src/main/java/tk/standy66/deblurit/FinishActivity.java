@@ -4,19 +4,18 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-
 import java.io.File;
 
-public class FinishActivity extends SherlockActivity {
+public class FinishActivity extends AppCompatActivity {
 	
 	public static final String IMAGE_URI = "tk.standy66.deblurit.IMAGE_URI";
 	
@@ -58,7 +57,7 @@ public class FinishActivity extends SherlockActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-    	getSherlock().getMenuInflater().inflate(R.menu.activity_finish, menu);
+    	getMenuInflater().inflate(R.menu.activity_finish, menu);
         return true;
     }
     
