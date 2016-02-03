@@ -24,7 +24,7 @@ import tk.standy66.deblurit.filtering.blur.OutOfFocusBlur;
 import tk.standy66.deblurit.filtering.filters.Filter;
 import tk.standy66.deblurit.filtering.filters.SharpenFilter;
 
-public class UnsharpPreviewActivity extends PreviewActivity {	
+public class UnsharpPreviewActivity extends PreviewActivity {
     private BlurType blurType;
     private SeekBar strengthSeekbar, radiusSeekbar, angleSeekbar, lengthSeekbar;
     private TextView strengthValue, radiusValue, angleValue, lengthValue;

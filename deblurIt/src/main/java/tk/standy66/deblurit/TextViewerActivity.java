@@ -3,6 +3,7 @@ package tk.standy66.deblurit;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -13,7 +14,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class TextViewerActivity extends Activity {
+public class TextViewerActivity extends AppCompatActivity {
 
     public TextView text;
 
