@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="tk.standy66.deblurit"
     android:versionCode="22"
-    android:versionName="1.1.1" >
+    android:versionName="1.1.1">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -16,94 +16,79 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
+        <service android:name=".ProcessingService"/>
+
         <activity
-            android:name=".UnsharpPreviewActivity"
-            android:label="@string/title_unsharp_preview_activity"
-            android:configChanges="orientation" >
+            android:name=".WelcomeActivity"
+            android:label="@string/title_activity_welcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".DeconvolutionPreviewActivity"
-            android:label="@string/title_deconvolution_preview_activity"
-            android:configChanges="orientation" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".ProgressActivity"
-            android:excludeFromRecents="true"
-            android:label="@string/title_progress_activity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".FinishActivity"
-            android:excludeFromRecents="true"
-            android:label="@string/title_finish_activity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <service android:name=".ProcessingService" >
-        </service>
+        <activity
+            android:name=".UnsharpPreviewActivity"
+            android:label="@string/title_unsharp_preview_activity"
+            android:configChanges="orientation"
+            android:parentActivityName=".WelcomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".WelcomeActivity"/>
+        </activity>
+
+        <activity
+            android:name=".DeconvolutionPreviewActivity"
+            android:label="@string/title_deconvolution_preview_activity"
+            android:parentActivityName=".WelcomeActivity"
+            android:configChanges="orientation">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".WelcomeActivity" />
+        </activity>
+
+        <activity
+            android:name=".ProgressActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/title_progress_activity"/>
+
+        <activity
+            android:name=".FinishActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/title_finish_activity"/>
 
         <activity
             android:name=".GlobalPreferenceActivity"
             android:excludeFromRecents="true"
-            android:label="@string/title_prefernces_activity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
+            android:label="@string/title_prefernces_activity">
         </activity>
+
         <activity
             android:name=".FeedbackActivity"
             android:excludeFromRecents="true"
             android:label="@string/title_activity_feedback"
-            android:theme="@android:style/Theme.Dialog" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
+            android:theme="@android:style/Theme.Dialog">
         </activity>
+
         <activity
             android:name=".AboutActivity"
             android:excludeFromRecents="true"
             android:label="@string/title_activity_about"
-            android:theme="@android:style/Theme.Dialog" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
+            android:theme="@android:style/Theme.Dialog">
         </activity>
+
         <activity
             android:name=".TextViewerActivity"
             android:excludeFromRecents="true"
             android:label="@string/title_activity_text_viewer"
-            android:theme="@android:style/Theme.Dialog" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
+            android:theme="@android:style/Theme.Dialog">
         </activity>
-        <activity
-            android:name=".WelcomeActivity"
-            android:label="@string/title_activity_welcome" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".HelpActivity"
-            android:label="@string/title_help_activity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
+            android:label="@string/title_help_activity"/>
+
     </application>
 
 </manifest>
