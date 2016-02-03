@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="tk.standy66.deblurit"
     android:versionCode="22"
     android:versionName="1.1.1">
@@ -69,24 +70,17 @@
         </activity>
 
         <activity
-            android:name=".FeedbackActivity"
-            android:excludeFromRecents="true"
-            android:label="@string/title_activity_feedback"
-            android:theme="@android:style/Theme.Dialog">
-        </activity>
-
-        <activity
             android:name=".AboutActivity"
             android:excludeFromRecents="true"
             android:label="@string/title_activity_about"
-            android:theme="@android:style/Theme.Dialog">
+            android:theme="@style/Theme.AppCompat.Dialog">
         </activity>
 
         <activity
             android:name=".TextViewerActivity"
             android:excludeFromRecents="true"
             android:label="@string/title_activity_text_viewer"
-            android:theme="@android:style/Theme.Dialog">
+            android:theme="@style/Theme.AppCompat.Dialog">
         </activity>
 
         <activity

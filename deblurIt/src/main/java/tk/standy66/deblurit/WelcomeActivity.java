@@ -249,11 +249,6 @@ public class WelcomeActivity extends AppCompatActivity {
         case R.id.menu_settings:
             startActivity(new Intent(this, GlobalPreferenceActivity.class));
             break;
-
-        case R.id.menu_feedback:
-            startActivity(new Intent(this, FeedbackActivity.class));
-            break;
-           
             
         case R.id.menu_about:
             startActivity(new Intent(this, AboutActivity.class));
@@ -263,7 +258,7 @@ public class WelcomeActivity extends AppCompatActivity {
         case R.id.menu_rateapp:
             Intent marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(
                     "http://play.google.com/store/apps/details?id=tk.standy66.deblurit"));
-                startActivity(marketIntent);		
+                startActivity(marketIntent);
             break;
 
         case R.id.menu_help:

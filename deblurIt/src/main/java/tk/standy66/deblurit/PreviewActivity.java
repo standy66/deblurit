@@ -245,10 +245,6 @@ public class PreviewActivity extends AppCompatActivity implements ActionBar.OnNa
         case R.id.menu_settings:
             startActivity(new Intent(this, GlobalPreferenceActivity.class));
             break;
-
-        case R.id.menu_feedback:
-            startActivity(new Intent(this, FeedbackActivity.class));
-            break;
            
             
         case R.id.menu_about:
