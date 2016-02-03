@@ -16,6 +16,6 @@
     <dimen name="padding_medium">16dp</dimen>
     <dimen name="padding_small">8dp</dimen>
     <dimen name="welcome_logo_bottomPadding">60dip</dimen>
-        <dimen name="welcome_padding_right">30dip</dimen>
+    <dimen name="welcome_padding_right">30dip</dimen>
 
 </resources>

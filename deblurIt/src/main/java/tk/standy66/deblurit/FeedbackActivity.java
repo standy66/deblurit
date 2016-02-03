@@ -11,11 +11,11 @@ import android.widget.Toast;
 
 public class FeedbackActivity extends Activity {
 
-	Button sendButton, discardButton;
-	EditText name, email, message;
-	Spinner feedbackType;
-	
-	
+    Button sendButton, discardButton;
+    EditText name, email, message;
+    Spinner feedbackType;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

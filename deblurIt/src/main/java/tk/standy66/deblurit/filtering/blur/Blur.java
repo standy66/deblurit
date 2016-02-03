@@ -5,13 +5,13 @@ import android.os.Parcelable;
 import tk.standy66.deblurit.tools.Image;
 
 public abstract class Blur implements Parcelable {
-	public abstract Image getKernel(int width, int height);	
-	public abstract int getRealWidth();
-	public abstract int getRealHeight();
-	
-	public abstract void setScaling(float value);
+    public abstract Image getKernel(int width, int height);
+    public abstract int getRealWidth();
+    public abstract int getRealHeight();
 
-	public Image getKernel() {
-		return getKernel(getRealWidth(), getRealHeight());
-	}
+    public abstract void setScaling(float value);
+
+    public Image getKernel() {
+        return getKernel(getRealWidth(), getRealHeight());
+    }
 }

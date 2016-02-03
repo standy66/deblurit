@@ -5,23 +5,23 @@
     android:orientation="vertical"
     android:gravity="center" >
 
-	<ScrollView 
-	    android:layout_width="match_parent"
-	    android:layout_height="0dip"
-	    android:layout_weight="9"
-	    android:scrollbars="vertical">
-	    <TextView 
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:id="@+id/textviewer_text"
-	        android:padding="15dip"/>
-	</ScrollView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="9"
+        android:scrollbars="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textviewer_text"
+            android:padding="15dip"/>
+    </ScrollView>
 
-	<Button
-	    android:id="@+id/textviewer_ok"
-	    android:layout_width="wrap_content"
-	    android:layout_height="0dip"
-	    android:layout_weight="1"
-	    android:text="@string/textviewver_button_ok"/>
-	
+    <Button
+        android:id="@+id/textviewer_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:text="@string/textviewver_button_ok"/>
+
 </LinearLayout>

@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 public class TextViewerActivity extends Activity {
 
-	public TextView text;
-	
+    public TextView text;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,11 +19,11 @@ public class TextViewerActivity extends Activity {
         Button ok = (Button)findViewById(R.id.textviewer_ok);
         text = (TextView)findViewById(R.id.textviewer_text);
         ok.setOnClickListener(new OnClickListener() {
-			
-			public void onClick(View v) {
-				finish();
-			}
-		});
+
+            public void onClick(View v) {
+                finish();
+            }
+        });
         text.setText(getResources().getString(R.string.textviewver_loading));
         new TextLoaderAsyncTask(this).execute("LICENSE.txt");
     }  

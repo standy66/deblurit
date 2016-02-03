@@ -11,15 +11,15 @@ public class AboutActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-    	
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         Button thirdparty = (Button)findViewById(R.id.about_thirdparty_button);
         thirdparty.setOnClickListener(new OnClickListener() {
-			
-			public void onClick(View v) {
-				startActivity(new Intent(AboutActivity.this, TextViewerActivity.class));
-			}
-		});
+
+            public void onClick(View v) {
+                startActivity(new Intent(AboutActivity.this, TextViewerActivity.class));
+            }
+        });
     }    
 }

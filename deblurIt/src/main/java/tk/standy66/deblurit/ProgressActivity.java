@@ -18,29 +18,29 @@ import tk.standy66.deblurit.ProcessingService.ProcessingServiceBinder;
 import tk.standy66.deblurit.ProcessingService.ProcessingServiceResultListener;
 
 public class ProgressActivity extends AppCompatActivity implements ProcessingServiceResultListener {
-	
 
-	private ProcessingServiceBinder binder;
-	private boolean mBound = false;
-	private Timer t = new Timer();
-	private TextView progressTextView;
-	
-	private class ProgressUpdateTask extends TimerTask {
-		@Override
-		public void run() {
-			if (binder == null)
-				return;
-			runOnUiThread(new Runnable() {
-				public void run() {
-					float timeRemaining = binder.getTimeRemaining();
-					if (progressTextView != null)
-						progressTextView.setText(String.format(getResources().getString(R.string.progress_time_remaining), (int)timeRemaining));
-				}
-			});
-		}
-		
-	}
-	
+
+    private ProcessingServiceBinder binder;
+    private boolean mBound = false;
+    private Timer t = new Timer();
+    private TextView progressTextView;
+
+    private class ProgressUpdateTask extends TimerTask {
+        @Override
+        public void run() {
+            if (binder == null)
+                return;
+            runOnUiThread(new Runnable() {
+                public void run() {
+                    float timeRemaining = binder.getTimeRemaining();
+                    if (progressTextView != null)
+                        progressTextView.setText(String.format(getResources().getString(R.string.progress_time_remaining), (int)timeRemaining));
+                }
+            });
+        }
+
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,23 +51,23 @@ public class ProgressActivity extends AppCompatActivity implements ProcessingSer
 
     @Override
     protected void onStart() {
-    	super.onStart();
-    	Intent intent = new Intent(this, ProcessingService.class);
-    	bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+        super.onStart();
+        Intent intent = new Intent(this, ProcessingService.class);
+        bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
     }
     
     @Override
     protected void onStop() {
-    	super.onStop();
-    	if (mBound) {
-    		unbindService(mConnection);
-    		mBound = false;
-    	}
+        super.onStop();
+        if (mBound) {
+            unbindService(mConnection);
+            mBound = false;
+        }
     }
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-    	getMenuInflater().inflate(R.menu.activity_progress, menu);
+        getMenuInflater().inflate(R.menu.activity_progress, menu);
         return true;
     }
 
@@ -91,40 +91,40 @@ public class ProgressActivity extends AppCompatActivity implements ProcessingSer
     
     @Override
     protected void onResume() {
-    	visible = true;
-    	super.onResume();
+        visible = true;
+        super.onResume();
     }
     
     @Override
     protected void onPause() {
-    	visible = false;
-    	super.onPause();
+        visible = false;
+        super.onPause();
     }
     
-	public void onResult(final String result) {
-		runOnUiThread(new Runnable() {
-			public void run() {
-				if (visible) {
-					Intent i = new Intent(ProgressActivity.this, FinishActivity.class);
-					i.putExtra(FinishActivity.IMAGE_URI, result);
-					startActivity(i);
-				}
-				finish();
-			}
-		});
-	}
-	
+    public void onResult(final String result) {
+        runOnUiThread(new Runnable() {
+            public void run() {
+                if (visible) {
+                    Intent i = new Intent(ProgressActivity.this, FinishActivity.class);
+                    i.putExtra(FinishActivity.IMAGE_URI, result);
+                    startActivity(i);
+                }
+                finish();
+            }
+        });
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-    	switch (item.getItemId()) {
-    	case R.id.menu_close:
-        	Intent intent = new Intent(this, ProcessingService.class);
-    		unbindService(mConnection);
-    		mBound = false;
-    		stopService(intent);
-    		finish();
-    		break;
-		}
-    	return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+        case R.id.menu_close:
+            Intent intent = new Intent(this, ProcessingService.class);
+            unbindService(mConnection);
+            mBound = false;
+            stopService(intent);
+            finish();
+            break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

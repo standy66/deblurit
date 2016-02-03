@@ -16,11 +16,11 @@ import android.widget.Toast;
 import java.io.File;
 
 public class FinishActivity extends AppCompatActivity {
-	
-	public static final String IMAGE_URI = "tk.standy66.deblurit.IMAGE_URI";
-	
-	private String image;
-	private Uri uri;
+
+    public static final String IMAGE_URI = "tk.standy66.deblurit.IMAGE_URI";
+
+    private String image;
+    private Uri uri;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,55 +29,55 @@ public class FinishActivity extends AppCompatActivity {
         ImageView iv = (ImageView)findViewById(R.id.finish_preview);
         Intent i = getIntent();
         if (i != null) {
-        	image = i.getStringExtra(IMAGE_URI);
-        	if (image != null) {
-				BitmapFactory.Options opts = new BitmapFactory.Options();
-				opts.inJustDecodeBounds = true;
-				BitmapFactory.decodeFile(image, opts);
-				int reqWidth = 512;
-				int reqHeight = 512;
-				
-				int scaling = Math.min(opts.outWidth / reqWidth, opts.outHeight / reqHeight);
-				opts.inJustDecodeBounds = false;
-				opts.inSampleSize = scaling;
-				uri = Uri.parse("file://" + image);
-				
-				iv.setImageBitmap(BitmapFactory.decodeFile(image, opts));
+            image = i.getStringExtra(IMAGE_URI);
+            if (image != null) {
+                BitmapFactory.Options opts = new BitmapFactory.Options();
+                opts.inJustDecodeBounds = true;
+                BitmapFactory.decodeFile(image, opts);
+                int reqWidth = 512;
+                int reqHeight = 512;
 
-        		iv.setOnClickListener(new OnClickListener() {
-					public void onClick(View v) {
-						Intent viewIntent = new Intent(Intent.ACTION_VIEW);
-						viewIntent.setDataAndType(uri, "image/*");
-						startActivity(viewIntent);
-					}
-				});
-        	}
+                int scaling = Math.min(opts.outWidth / reqWidth, opts.outHeight / reqHeight);
+                opts.inJustDecodeBounds = false;
+                opts.inSampleSize = scaling;
+                uri = Uri.parse("file://" + image);
+
+                iv.setImageBitmap(BitmapFactory.decodeFile(image, opts));
+
+                iv.setOnClickListener(new OnClickListener() {
+                    public void onClick(View v) {
+                        Intent viewIntent = new Intent(Intent.ACTION_VIEW);
+                        viewIntent.setDataAndType(uri, "image/*");
+                        startActivity(viewIntent);
+                    }
+                });
+            }
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-    	getMenuInflater().inflate(R.menu.activity_finish, menu);
+        getMenuInflater().inflate(R.menu.activity_finish, menu);
         return true;
     }
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-    	switch (item.getItemId()) {
-    	case R.id.menu_delete:
-    		Log.i("FinishActivity", "Deleting file: " + image);
-    		File f = new File(image);
-			boolean deleted = f.delete();
-			if (!deleted)
-				Toast.makeText(FinishActivity.this, getResources().getString(R.string.toast_error_deleting_file), Toast.LENGTH_LONG).show();
-			else 
-				finish();
-    		break;
-		case R.id.menu_save:
-			finish();
-			break;
-    	}
-    	return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+        case R.id.menu_delete:
+            Log.i("FinishActivity", "Deleting file: " + image);
+            File f = new File(image);
+            boolean deleted = f.delete();
+            if (!deleted)
+                Toast.makeText(FinishActivity.this, getResources().getString(R.string.toast_error_deleting_file), Toast.LENGTH_LONG).show();
+            else
+                finish();
+            break;
+        case R.id.menu_save:
+            finish();
+            break;
+        }
+        return super.onOptionsItemSelected(item);
     }
     
 }

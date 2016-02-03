@@ -3,18 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingTranslation" >>
     <string-array name="formats">
-		<item>JPEG</item>
-		<item>PNG</item>
+        <item>JPEG</item>
+        <item>PNG</item>
     </string-array>
     <string-array name="proc_modes">
-		<item>Ask</item>
-		<item>Manual</item>
-		<item>Auto</item>
+        <item>Ask</item>
+        <item>Manual</item>
+        <item>Auto</item>
     </string-array>
     <string-array name="modes_localized">
-		<item>Ask</item>
-		<item>Manual</item>
-		<item>Auto</item>
+        <item>Ask</item>
+        <item>Manual</item>
+        <item>Auto</item>
     </string-array>
     <string-array name="modes">
         <item>Unsharp mask</item>

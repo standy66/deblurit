@@ -18,12 +18,12 @@
     <string name="menu_buypro">Buy PRO</string>
     <string name="menu_rateapp">Rate this app</string>
     
-	<string name="toast_camera_not_supported">Camera is not supported by this device.</string>
-	<string name="toast_error_opening_file">Error opening file. Try another file manager.</string>
-	<string name="toast_file_not_found">File not found. Try another file manager.</string>
-	<string name="toast_error_creating_file">Error creating file. Try another file manager.</string>
-	<string name="toast_out_of_memory">Out of memory. Try to clear RAM.</string>
-	<string name="toast_error_deleting_file">Error deleting file</string>
+    <string name="toast_camera_not_supported">Camera is not supported by this device.</string>
+    <string name="toast_error_opening_file">Error opening file. Try another file manager.</string>
+    <string name="toast_file_not_found">File not found. Try another file manager.</string>
+    <string name="toast_error_creating_file">Error creating file. Try another file manager.</string>
+    <string name="toast_out_of_memory">Out of memory. Try to clear RAM.</string>
+    <string name="toast_error_deleting_file">Error deleting file</string>
     <string name="intent_content_method">tk.standy66.deblurit.GET_CONTENT_METHOD</string>
     <string name="welcome_takephoto">Take photo</string>
     <string name="welcome_open">Open file</string>
