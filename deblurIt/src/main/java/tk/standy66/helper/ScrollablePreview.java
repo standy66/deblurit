@@ -1,4 +1,4 @@
-package tk.standy66.widgets;
+package tk.standy66.helper;
 
 import android.content.Context;
 import android.graphics.Bitmap;

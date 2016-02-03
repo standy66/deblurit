@@ -33,7 +33,7 @@ import tk.standy66.deblurit.tools.ImageUtils;
 import tk.standy66.deblurit.tools.MutableDouble;
 import tk.standy66.deblurit.tools.SessionSettings;
 import tk.standy66.deblurit.tools.Utils;
-import tk.standy66.widgets.ScrollablePreview;
+import tk.standy66.helper.ScrollablePreview;
 
 
 public class PreviewActivity extends AppCompatActivity implements ActionBar.OnNavigationListener {

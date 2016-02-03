@@ -9,12 +9,14 @@ import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
+import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 
 import tk.standy66.deblurit.tools.App;
 import tk.standy66.deblurit.tools.Defaults;
+import tk.standy66.helper.AppCompatPreferenceActivity;
 
-public class GlobalPreferenceActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener
+public class GlobalPreferenceActivity extends AppCompatPreferenceActivity implements OnSharedPreferenceChangeListener
 {
     private static int prefs=R.xml.preferences;
     private static Resources resources;
@@ -26,6 +28,7 @@ public class GlobalPreferenceActivity extends PreferenceActivity implements OnSh
     private static ListPreference mode;
     private static String[] modes = App.getApplicationContext().getResources().getStringArray(R.array.proc_modes);
     private static String[] modesLocalized = App.getApplicationContext().getResources().getStringArray(R.array.modes_localized);
+
 
     @Override
     protected void onCreate(final Bundle savedInstanceState)

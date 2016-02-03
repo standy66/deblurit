@@ -61,7 +61,11 @@
         <activity
             android:name=".GlobalPreferenceActivity"
             android:excludeFromRecents="true"
-            android:label="@string/title_prefernces_activity">
+            android:label="@string/title_prefernces_activity"
+            android:parentActivityName=".WelcomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".WelcomeActivity" />
         </activity>
 
         <activity
