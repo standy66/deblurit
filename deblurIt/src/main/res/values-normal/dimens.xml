@@ -13,6 +13,6 @@
     <dimen name="spinner_header_textsize">14dip</dimen>
     <dimen name="spinner_addinfo_textsize">12dip</dimen>
     <dimen name="welcome_logo_bottomPadding">5dip</dimen>
-	<dimen name="welcome_padding_right">15dip</dimen>
+    <dimen name="welcome_padding_right">15dip</dimen>
 
 </resources>
