@@ -1,20 +1,10 @@
-<resources
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="MissingTranslation" >>
+<resources>
     <string name="pref_acra_syslog">Send crash reports</string>
     <string name="pref_acra_syslog_summary">If application crashes, information will be sent to developers.</string>
     
     <string name="progress_time_remaining">Time remaining: %ds</string>
-    <string name="admob_publisher_id">a151152bea7fb1b</string>
-    
-    <string name="license_error">Error occurred while checking license</string>
-    <string name="license_error_retry">Retry</string>
-    <string name="license_error_exit">Exit</string>
-    
-    <string name="license_not_found">License not found</string>
-    <string name="license_not_found_play">Google Play</string>
-    <string name="license_not_found_exit">Exit</string>
-    
+    <string name="admob_publisher_id" translatable="false">a151152bea7fb1b</string>
+
     <string name="menu_buypro">Buy PRO</string>
     <string name="menu_rateapp">Rate this app</string>
     
@@ -24,11 +14,11 @@
     <string name="toast_error_creating_file">Error creating file. Try another file manager.</string>
     <string name="toast_out_of_memory">Out of memory. Try to clear RAM.</string>
     <string name="toast_error_deleting_file">Error deleting file</string>
-    <string name="intent_content_method">tk.standy66.deblurit.GET_CONTENT_METHOD</string>
+    <string name="intent_content_method" translatable="false">tk.standy66.deblurit.GET_CONTENT_METHOD</string>
     <string name="welcome_takephoto">Take photo</string>
     <string name="welcome_open">Open file</string>
     <string name="welcome_previous">Previous</string>
-    <string name="app_name">DeblurIt Pro</string>
+    <string name="app_name" translatable="false">DeblurIt Pro</string>
     <string name="menu_settings">Settings</string>
     <string name="menu_feedback">Feedback</string>
     <string name="menu_cancel">Cancel</string>
@@ -37,7 +27,7 @@
     <string name="menu_about">About</string>
     <string name="menu_open">Open</string>
     <string name="menu_takephoto">Take photo</string>
-    <string name="title_unsharp_preview_activity">DeblurIt Pro</string>
+    <string name="title_unsharp_preview_activity" translatable="false">DeblurIt Pro</string>
     <string name="title_deconvolution_preview_activity">DeblurIt Pro</string>
     <string name="title_progress_activity">In progress</string>
     <string name="title_finish_activity">Finish</string>
@@ -59,16 +49,16 @@
     <string name="preview_label_angle">Angle</string>
     <string name="preview_label_length">Length</string>
     <string name="preview_label_smoothness">Smooth</string>
-    <string name="shared_preferences_name">tk.standy66.deblurit.SHARED_PREFERENCES</string>
-    <string name="global_settings_preferences_name">tk.standy66.deblurit_preferences</string>
-    <string name="session_settings_preferences_name">tk.standy66.deblurit.tools.SessionSettings_PREFERENCES</string>
-    <string name="key_save_path">tk.standy66.deblurit.tools.GlobalSettings_SAVE_PATH</string>
-    <string name="key_max_output">tk.standy66.deblurit.tools.GlobalSettings_MAX_OUTPUT_SIZE</string>
-    <string name="key_format">tk.standy66.deblurit.tools.GlobalSettings_FORMAT</string>
-    <string name="mode">tk.standy66.deblurit.tools.GlobalSettings_MODE</string>
-    <string name="constant_zero">0</string>
-    <string name="preview_max_radius_value">640</string>
-    <string name="preview_max_length_value">640</string>
+    <string name="shared_preferences_name" translatable="false">tk.standy66.deblurit.SHARED_PREFERENCES</string>
+    <string name="global_settings_preferences_name" translatable="false">tk.standy66.deblurit_preferences</string>
+    <string name="session_settings_preferences_name" translatable="false">tk.standy66.deblurit.tools.SessionSettings_PREFERENCES</string>
+    <string name="key_save_path" translatable="false">tk.standy66.deblurit.tools.GlobalSettings_SAVE_PATH</string>
+    <string name="key_max_output" translatable="false">tk.standy66.deblurit.tools.GlobalSettings_MAX_OUTPUT_SIZE</string>
+    <string name="key_format" translatable="false">tk.standy66.deblurit.tools.GlobalSettings_FORMAT</string>
+    <string name="mode" translatable="false">tk.standy66.deblurit.tools.GlobalSettings_MODE</string>
+    <string name="constant_zero" translatable="false">0</string>
+    <string name="preview_max_radius_value" translatable="false">640</string>
+    <string name="preview_max_length_value" translatable="false">640</string>
     <string name="name_save_path_preference">Save path</string>
     <string name="name_max_output_preference">Maximum output size</string>
     <string name="name_format_preference">Output format</string>
@@ -77,12 +67,12 @@
     <string name="notif_ready_description">The image is ready!</string>
     <string name="summary_save_path">New images are saved to %s</string>
     <string name="summary_max_output">Images larger than %0$sx%0$s will be downscaled</string>
-    <string name="summary_format">%s</string>
-    <string name="summary_mode">%s</string>
+    <string name="summary_format" translatable="false">%s</string>
+    <string name="summary_mode" translatable="false">%s</string>
     
     <string name="mode_dialog_text">Select mode (can be changed in settings)</string>
-    <string name="mode_dialog_manual">Manual (Deconvolution)</string>
-    <string name="mode_dialog_auto">Auto (Unsharp mask)</string>
+    <string name="mode_dialog_manual">Manual (Remove large defects)</string>
+    <string name="mode_dialog_auto">Auto (Remove small defects)</string>
     
     <string name="finish_button_save">Save</string>
     <string name="finish_button_delete">Delete</string>
@@ -104,10 +94,9 @@
     <string name="feedback_type_desciption">Choose feedback type</string>
     <string name="feedback_send_toast">Thank you</string>
     <string name="title_activity_about">About this app</string>
-    <string name="about_name">DeblurIt Pro</string>
-    <string name="about_version">Version 1.1.0</string>
-    <string name="about_copyright">Copyright 2013 Smallboxes Software</string>
-    <string name="about_website">http://smallboxessoftware.tk/</string>
+    <string name="about_name" translatable="false">DeblurIt Pro</string>
+    <string name="about_version">Version 1.5.0</string>
+    <string name="about_copyright">Copyright 2016 Andrew Stepanov</string>
     <string name="about_description">This application uses software under APACHE License (ActionBarSherlock, ACRA, JSSEProvider), CDDL-1.0 License(javamail-android). Some assets is licensed under Creative Commons Attribution 3.0 Unported License.  You can find third party licensing informationg by clicking the button below.</string>
     <string name="about_thirdparty_button">Third party information</string>
     <string name="title_activity_text_viewer">Third party licenses</string>
@@ -125,5 +114,6 @@
 You can select the type of PSF and change its basic setting (like radius, length, angle) by manipulating appropriate seek bars.<p> Preview button generates thumbnail that shows how the result may look like. By default, resulting images are saved to /sdcard/Pictures/DeblurIt/ folder.
         
     ]]></string>
+    <string name="about_website" translatable="false">asd</string>
 
 </resources>

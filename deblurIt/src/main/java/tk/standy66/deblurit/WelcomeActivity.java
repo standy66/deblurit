@@ -1,6 +1,6 @@
 package tk.standy66.deblurit;
 
-import android.app.AlertDialog;
+import android.support.v7.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -111,7 +111,7 @@ public class WelcomeActivity extends AppCompatActivity {
         switch (requestCode) {
             case PICKFILE_RESULT_CODE:
                 if (data.getData() != null)
-                    f = new File(Utils.getRealPathFromURI(data.getData()));
+                    f = new File(Utils.getRealPathFromURI(this, data.getData()));
                 break;
             case TAKEPHOTO_RESULT_CODE:
                 f = capturedImage;
@@ -271,6 +271,7 @@ public class WelcomeActivity extends AppCompatActivity {
     
     void buildModeDialog(final Runnable positiveRunnable, final Runnable negativeRunnable) {
         Log.i("WelcomeActivity", "Creating mode dialog");
+
         new AlertDialog.Builder(WelcomeActivity.this).setMessage(getResources().getString(R.string.mode_dialog_text))
         .setPositiveButton(getResources().getString(R.string.mode_dialog_auto), new DialogInterface.OnClickListener() {
 
@@ -286,89 +287,6 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         }).create().show();
     }
-
-    
-    void processResult(final int code, final int initialCode) {
-        Log.i("ProcessLicenseChecking", String.valueOf(code));
-        handler.post(new Runnable() {
-
-            public void run() {
-                setProgressBarIndeterminateVisibility(false);
-            }
-        });
-        switch (code) {
-            case RESULT_ALLOW:
-                blocker = false;
-                break;
-            case RESULT_DONT_ALLOW:
-                handler.post(new Runnable() {
-                    public void run() {
-                        new AlertDialog.Builder(WelcomeActivity.this).setMessage(String.format("%s CODE: %d.%d", getResources().getString(R.string.license_not_found), code, initialCode))
-                        .setPositiveButton(getResources().getString(R.string.license_not_found_play), new DialogInterface.OnClickListener() {
-
-                            public void onClick(DialogInterface dialog, int which) {
-                                Intent marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(
-                                        "http://play.google.com/store/apps/details?id=" + getPackageName()));
-                                    startActivity(marketIntent);
-                                    finish();
-
-                            }
-                        }).setNegativeButton(getResources().getString(R.string.license_not_found_exit), new DialogInterface.OnClickListener() {
-
-                            public void onClick(DialogInterface dialog, int which) {
-                                finish();
-                            }
-                        }).create().show();
-                    }
-                });
-                break;
-
-            case RESULT_RETRY:
-                handler.post(new Runnable() {
-                    public void run() {
-                        new AlertDialog.Builder(WelcomeActivity.this).setMessage(String.format("%s CODE: %d.%d", getResources().getString(R.string.license_error), code, initialCode))
-                        .setPositiveButton(getResources().getString(R.string.license_error_retry), new DialogInterface.OnClickListener() {
-
-                            public void onClick(DialogInterface dialog, int which) {
-                                Intent marketIntent = new Intent(WelcomeActivity.this, WelcomeActivity.class);
-                                    startActivity(marketIntent);
-                                    finish();
-
-                            }
-                        }).setNegativeButton(getResources().getString(R.string.license_error_exit), new DialogInterface.OnClickListener() {
-
-                            public void onClick(DialogInterface dialog, int which) {
-                                finish();
-                            }
-                        }).create().show();
-                    }
-                });
-                break;
-
-            case RESULT_ERROR:
-                handler.post(new Runnable() {
-                    public void run() {
-                        new AlertDialog.Builder(WelcomeActivity.this).setMessage(String.format("%s CODE: %d.%d", getResources().getString(R.string.license_error), code, initialCode))
-                        .setPositiveButton(getResources().getString(R.string.license_error_retry), new DialogInterface.OnClickListener() {
-
-                            public void onClick(DialogInterface dialog, int which) {
-                                Intent marketIntent = new Intent(WelcomeActivity.this, WelcomeActivity.class);
-                                    startActivity(marketIntent);
-                                    finish();
-
-                            }
-                        }).setNegativeButton(getResources().getString(R.string.license_error_exit), new DialogInterface.OnClickListener() {
-
-                            public void onClick(DialogInterface dialog, int which) {
-                                finish();
-                            }
-                        }).create().show();
-                    }
-                });
-                break;
-        }
-    }
-
     
     @Override
     protected void onDestroy() {

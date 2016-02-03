@@ -290,8 +290,8 @@ public class PreviewActivity extends AppCompatActivity implements ActionBar.OnNa
         switch (requestCode) {
             case PICKFILE_RESULT_CODE:
                 if (data.getData() != null)
-                    Log.i("PreviewActivity", Utils.getRealPathFromURI(data.getData()));
-                    f = new File(Utils.getRealPathFromURI(data.getData()));
+                    Log.i("PreviewActivity", Utils.getRealPathFromURI(this, data.getData()));
+                    f = new File(Utils.getRealPathFromURI(this, data.getData()));
                 break;
             case TAKEPHOTO_RESULT_CODE:
                 f = capturedImage;

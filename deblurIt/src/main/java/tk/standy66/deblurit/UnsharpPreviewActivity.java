@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -59,26 +60,28 @@ public class UnsharpPreviewActivity extends PreviewActivity {
         else
             setContentView(R.layout.preview_activity);
 
-        Spinner s = (Spinner)findViewById(R.id.preview_deconvolution_spinner);
-        s.setAdapter(adapter);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.blur_types, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        Spinner spinner = (Spinner)findViewById(R.id.preview_deconvolution_spinner);
+        spinner.setAdapter(adapter);
 
 
         switch (blurType) {
         case OutOfFocusBlur:
-            s.setSelection(0);
+            spinner.setSelection(0);
             break;
         case GaussianBlur:
-            s.setSelection(1);
+            spinner.setSelection(1);
             break;
         case MotionBlur:
-            s.setSelection(2);
+            spinner.setSelection(2);
             break;
         }
 
         ((TextView)findViewById(R.id.subtitle)).setText(getResources().getString(R.string.subtitle_unsharp_preview_activity));
         ((TextView)findViewById(R.id.strength_label)).setText(getResources().getString(R.string.preview_label_strength));
 
-        s.setOnItemSelectedListener(new OnItemSelectedListener() {
+        spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 
             public void onItemSelected(AdapterView<?> parent, View view,
                     int position, long id) {

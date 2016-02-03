@@ -2,22 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    style="?attr/spinnerDropDownItemStyle">
 
     <TextView
         android:id="@+id/spinner_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="15dp"
         android:text="Header"
-        android:textSize="@dimen/spinner_header_textsize"
+        android:textColor="@color/primary_text"
         style="?attr/spinnerDropDownItemStyle" />
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/spinner_addinfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="addinfo"
-        android:textSize="@dimen/spinner_addinfo_textsize"
+        android:textColor="@color/secondary_text"
         android:layout_marginTop="5dip"
         style="?attr/spinnerDropDownItemStyle"  />
 

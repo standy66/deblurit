@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="MissingTranslation" >>
+<resources>
     <string-array name="formats">
         <item>JPEG</item>
         <item>PNG</item>
@@ -21,19 +19,13 @@
         <item>Deconvolution</item>
     </string-array>
     <string-array name="mode_descriptions">
-        <item>Removes small defects</item>
-        <item>Removes large defects</item>
+        <item>Remove small defects</item>
+        <item>Remove large defects</item>
     </string-array>
     <string-array name="blur_types">
         <item>Out of focus blur</item>
         <item>Gaussian blur</item>
         <item>Motion blur</item>
-    </string-array>
-    <string-array name="feedback_type">
-        <item>Crash</item>
-        <item>Bug</item>
-        <item>Suggestion</item>
-        <item>Other</item>
     </string-array>
 
 </resources>

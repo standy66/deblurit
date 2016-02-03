@@ -14,10 +14,4 @@
         <item>Гауссово размытие</item>
         <item>Размытие в движении</item>
     </string-array>
-    <string-array name="feedback_type">
-        <item>Ошибка</item>
-        <item>Баг</item>
-        <item>Предложение</item>
-        <item>Прочее</item>
-    </string-array>
 </resources>

@@ -72,9 +72,8 @@
     <string name="feedback_type_desciption">Тип сообщения</string>
     <string name="feedback_send_toast">Спасибо</string>
     <string name="title_activity_about">О приложении</string>
-    <string name="about_version">Версия 1.1.0</string>
-    <string name="about_copyright">Copyright 2013 Smallboxes Software</string>
-    <string name="about_website">http://smallboxessoftware.tk/</string>
+    <string name="about_version">Версия 1.5.0</string>
+    <string name="about_copyright">Copyright 2015 Andrew Stepanov</string>
     <string name="about_description">Часть кода этого приложения распространяется под лицензией APACHE License (ActionBarSherlock, ACRA, JSSEProvider), CDDL-1.0 License(javamail-android). Некоторые части приложения лицензированы под Creative Commons Attribution 3.0 Unported License.  Нажмите на кнопку внизу, чтобы узнать дополнительную информацию.</string>
     <string name="about_thirdparty_button">Информация третьих лиц</string>
     <string name="title_activity_text_viewer">Лицензии третьих лиц</string>
