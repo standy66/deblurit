@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.widget.TextView;
 
+import tk.standy66.deblurit.tools.Utils;
+
 public class HelpActivity extends AppCompatActivity {
 
     @Override
@@ -20,6 +22,12 @@ public class HelpActivity extends AppCompatActivity {
                 return drawable;
             }
         }, null));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Utils.analyticsLogScreenChange(getApplication(), "Help");
     }
     
 }

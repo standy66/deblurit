@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import java.io.File;
 
+import tk.standy66.deblurit.tools.Utils;
+
 public class FinishActivity extends AppCompatActivity {
 
     public static final String IMAGE_URI = "tk.standy66.deblurit.IMAGE_URI";
@@ -59,6 +61,12 @@ public class FinishActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_finish, menu);
         return true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Utils.analyticsLogScreenChange(getApplication(), "Finish");
     }
     
     @Override

@@ -24,6 +24,7 @@ import tk.standy66.deblurit.filtering.blur.MotionBlur;
 import tk.standy66.deblurit.filtering.blur.OutOfFocusBlur;
 import tk.standy66.deblurit.filtering.filters.Filter;
 import tk.standy66.deblurit.filtering.filters.SharpenFilter;
+import tk.standy66.deblurit.tools.Utils;
 
 public class UnsharpPreviewActivity extends PreviewActivity {
     private BlurType blurType;
@@ -281,6 +282,12 @@ public class UnsharpPreviewActivity extends PreviewActivity {
         if (scaledBitmap != null)
             scaledBitmap.recycle();
         initializePreview(false);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Utils.analyticsLogScreenChange(getApplication(), "Sharpen");
     }
 
 }

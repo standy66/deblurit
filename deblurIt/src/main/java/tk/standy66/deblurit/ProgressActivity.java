@@ -16,6 +16,7 @@ import java.util.TimerTask;
 
 import tk.standy66.deblurit.ProcessingService.ProcessingServiceBinder;
 import tk.standy66.deblurit.ProcessingService.ProcessingServiceResultListener;
+import tk.standy66.deblurit.tools.Utils;
 
 public class ProgressActivity extends AppCompatActivity implements ProcessingServiceResultListener {
 
@@ -93,6 +94,7 @@ public class ProgressActivity extends AppCompatActivity implements ProcessingSer
     protected void onResume() {
         visible = true;
         super.onResume();
+        Utils.analyticsLogScreenChange(getApplication(), "Progress");
     }
     
     @Override

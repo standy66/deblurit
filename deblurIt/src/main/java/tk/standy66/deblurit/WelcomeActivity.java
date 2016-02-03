@@ -66,6 +66,8 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onResume() {
         App.locker = true;
         super.onResume();
+        Utils.analyticsLogScreenChange(getApplication(), "Welcome");
+
     }
     
     File capturedImage;
@@ -146,7 +148,7 @@ public class WelcomeActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.toast_file_not_found, Toast.LENGTH_LONG).show();
     }
 
-    
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

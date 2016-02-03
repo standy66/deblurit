@@ -25,9 +25,9 @@ android {
 
 dependencies {
     compile 'com.android.support:support-v4:23.1.1'
-    //should migrate from this
-    //compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
-    //to this
     compile 'com.android.support:design:23.1.1'
     compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.google.android.gms:play-services-analytics:8.4.0'
 }
+
+apply plugin: 'com.google.gms.google-services'

@@ -24,6 +24,7 @@ import tk.standy66.deblurit.filtering.blur.MotionBlur;
 import tk.standy66.deblurit.filtering.blur.OutOfFocusBlur;
 import tk.standy66.deblurit.filtering.filters.Filter;
 import tk.standy66.deblurit.filtering.filters.WienerFilter;
+import tk.standy66.deblurit.tools.Utils;
 
 public class DeconvolutionPreviewActivity extends PreviewActivity {
 
@@ -53,6 +54,12 @@ public class DeconvolutionPreviewActivity extends PreviewActivity {
 
     private void postChangesToPreveiw() {
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Utils.analyticsLogScreenChange(getApplication(), "Deconvolution");
     }
 
     private void reloadView() {

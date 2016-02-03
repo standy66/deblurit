@@ -14,6 +14,8 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import tk.standy66.deblurit.tools.Utils;
+
 public class TextViewerActivity extends AppCompatActivity {
 
     public TextView text;
@@ -33,6 +35,12 @@ public class TextViewerActivity extends AppCompatActivity {
         });
         text.setText(getResources().getString(R.string.textviewver_loading));
         new TextLoaderAsyncTask(this).execute("LICENSE.txt");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Utils.analyticsLogScreenChange(getApplication(), "Legal");
     }
 
     private static class TextLoaderAsyncTask extends AsyncTask<String, Integer, String> {

@@ -14,6 +14,7 @@ import android.util.Log;
 
 import tk.standy66.deblurit.tools.App;
 import tk.standy66.deblurit.tools.Defaults;
+import tk.standy66.deblurit.tools.Utils;
 import tk.standy66.helper.AppCompatPreferenceActivity;
 
 public class GlobalPreferenceActivity extends AppCompatPreferenceActivity implements OnSharedPreferenceChangeListener
@@ -26,7 +27,7 @@ public class GlobalPreferenceActivity extends AppCompatPreferenceActivity implem
     private static EditTextPreference maxOutput;
     private static ListPreference format;
     private static ListPreference mode;
-    private static String[] modes = App.getApplicationContext().getResources().getStringArray(R.array.proc_modes);
+    private static String[] modes = App.getApplicationContext().getResources().getStringArray(R.array.modes_localized);
     private static String[] modesLocalized = App.getApplicationContext().getResources().getStringArray(R.array.modes_localized);
 
 
@@ -176,5 +177,11 @@ public class GlobalPreferenceActivity extends AppCompatPreferenceActivity implem
         }
         updateSummary(key, val);
         handling = false;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Utils.analyticsLogScreenChange(getApplication(), "Preferences");
     }
 }

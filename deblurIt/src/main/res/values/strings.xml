@@ -28,7 +28,7 @@
     <string name="menu_open">Open</string>
     <string name="menu_takephoto">Take photo</string>
     <string name="title_unsharp_preview_activity" translatable="false">DeblurIt Pro</string>
-    <string name="title_deconvolution_preview_activity">DeblurIt Pro</string>
+    <string name="title_deconvolution_preview_activity" translatable="false">DeblurIt Pro</string>
     <string name="title_progress_activity">In progress</string>
     <string name="title_finish_activity">Finish</string>
     <string name="title_prefernces_activity">Settings</string>
@@ -103,7 +103,7 @@
     <string name="textviewver_button_ok">OK</string>
     <string name="textviewver_loading">Loading&#8230;</string>
     <string name="preview_chooser_title">Choose picture</string>
-    <string name="title_activity_welcome">DeblurIt Pro</string>
+    <string name="title_activity_welcome" translatable="false">DeblurIt Pro</string>
     <string name="title_activity_help">HelpActivity</string>
     <string name="help_message"><![CDATA[
         This program uses 2 different filters to make your pictures better.<p>

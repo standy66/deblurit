@@ -1,0 +1,45 @@
+{
+  "project_info": {
+    "project_id": "deblurit",
+    "project_number": "203617292921",
+    "name": "DeblurIt"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203617292921:android:c0f1ae026ded8391",
+        "client_id": "android:tk.standy66.deblurit",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "tk.standy66.deblurit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-73301637-1"
+          }
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 1
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}

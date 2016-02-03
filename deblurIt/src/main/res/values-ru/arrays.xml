@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>    
+<resources>
+    <string-array name="formats">
+        <item>JPEG</item>
+        <item>PNG</item>
+    </string-array>
     <string-array name="modes_localized">
         <item>Спросить</item>
         <item>Ручной</item>

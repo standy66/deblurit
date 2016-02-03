@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import tk.standy66.deblurit.tools.Utils;
+
 public class AboutActivity extends AppCompatActivity {
 
     @Override
@@ -22,5 +24,11 @@ public class AboutActivity extends AppCompatActivity {
                 startActivity(new Intent(AboutActivity.this, TextViewerActivity.class));
             }
         });
-    }    
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Utils.analyticsLogScreenChange(getApplication(), "About");
+    }
 }
