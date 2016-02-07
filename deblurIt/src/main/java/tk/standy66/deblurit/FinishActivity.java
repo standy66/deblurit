@@ -1,9 +1,11 @@
 package tk.standy66.deblurit;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 
 import java.io.File;
 
+import tk.standy66.deblurit.tools.CapturePhotoUtils;
 import tk.standy66.deblurit.tools.Utils;
 
 public class FinishActivity extends AppCompatActivity {
@@ -43,9 +46,13 @@ public class FinishActivity extends AppCompatActivity {
                 opts.inJustDecodeBounds = false;
                 opts.inSampleSize = scaling;
                 uri = Uri.parse("file://" + image);
+                Log.i("FinishActivity", uri.toString());
+                Bitmap bmp = BitmapFactory.decodeFile(image, opts);
+                iv.setImageBitmap(bmp);
 
-                iv.setImageBitmap(BitmapFactory.decodeFile(image, opts));
+                String result = CapturePhotoUtils.insertImage(getContentResolver(), bmp, uri.getLastPathSegment(), "DeblurIt result");
 
+                Log.i("FinishActivity", result);
                 iv.setOnClickListener(new OnClickListener() {
                     public void onClick(View v) {
                         Intent viewIntent = new Intent(Intent.ACTION_VIEW);

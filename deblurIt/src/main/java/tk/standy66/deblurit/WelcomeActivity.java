@@ -23,6 +23,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 import tk.standy66.deblurit.filtering.Pipeline;
@@ -279,12 +280,14 @@ public class WelcomeActivity extends AppCompatActivity {
 
             public void onClick(DialogInterface dialog, int which) {
                 positiveRunnable.run();
+                String modeLocalized = getResources().getStringArray(R.array.modes_localized)[2];
                 gs.setMode("Auto");
             }
         }).setNegativeButton(getResources().getString(R.string.mode_dialog_manual), new DialogInterface.OnClickListener() {
 
             public void onClick(DialogInterface dialog, int which) {
                 negativeRunnable.run();
+                String modeLocalized = getResources().getStringArray(R.array.modes_localized)[1];
                 gs.setMode("Manual");
             }
         }).create().show();

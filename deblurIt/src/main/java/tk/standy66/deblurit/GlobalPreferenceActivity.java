@@ -27,7 +27,7 @@ public class GlobalPreferenceActivity extends AppCompatPreferenceActivity implem
     private static EditTextPreference maxOutput;
     private static ListPreference format;
     private static ListPreference mode;
-    private static String[] modes = App.getApplicationContext().getResources().getStringArray(R.array.modes_localized);
+    private static String[] modes = App.getApplicationContext().getResources().getStringArray(R.array.mode_values);
     private static String[] modesLocalized = App.getApplicationContext().getResources().getStringArray(R.array.modes_localized);
 
 
@@ -128,12 +128,16 @@ public class GlobalPreferenceActivity extends AppCompatPreferenceActivity implem
             format.setSummary(String.format(resources.getString(R.string.summary_format), format.getEntry()));
         } else {
             int id = -1;
-            Log.i("GlobalPreferenceActivity", mode.getEntry().toString());
+            if (mode.getValue() == null) {
+                Log.i("GlobalPreferenceActivity", "mode.getValue() == null");
+            } else {
+                Log.i("GlobalPreferenceActivity", mode.getValue().toString());
+            }
             Log.i("GlobalPreferenceActivity", String.format("%s %s %s", modes[0], modes[1], modes[2]));
             Log.i("GlobalPreferenceActivity", String.format("%s %s %s", modesLocalized[0], modesLocalized[1], modesLocalized[2]));
 
             for (int i = 0; i < modes.length; i++)
-                if (modes[i].equals(mode.getEntry()))
+                if (modes[i].equals(mode.getValue()))
                     id = i;
             if (id == -1)
                 throw new RuntimeException("Cant' find selected mode");

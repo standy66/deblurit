@@ -9,6 +9,11 @@
         <item>Manual</item>
         <item>Auto</item>
     </string-array>
+    <string-array name="mode_values">
+        <item>Ask</item>
+        <item>Manual</item>
+        <item>Auto</item>
+    </string-array>
     <string-array name="modes" translatable="false">
         <item>Unsharp mask</item>
         <item>Deconvolution</item>

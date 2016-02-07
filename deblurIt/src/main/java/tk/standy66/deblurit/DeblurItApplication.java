@@ -26,7 +26,8 @@ public class DeblurItApplication extends Application {
             // To enable debug logging use: adb shell setprop log.tag.GAv4 DEBUG
             mTracker = analytics.newTracker(R.xml.global_tracker);
             Log.i("Analytics", "Dry run is: " + BuildConfig.DEBUG);
-            GoogleAnalytics.getInstance(this).setDryRun(BuildConfig.DEBUG);
+            analytics.setDryRun(BuildConfig.DEBUG);
+
         }
         return mTracker;
     }

@@ -3,6 +3,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <time.h>
+#include <pthread.h>
 
 #define LOG_TAG "native"
 #define INTERNAL
