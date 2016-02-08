@@ -10,4 +10,5 @@ public class LibImageFilters {
     public static native void registerSubscriber(Class clazz, Object object, String methodName, String methodSignature);
     public static native void removeSubscriber();
     public static native void filterLoG(byte[][][] image, int w, int h, float radius, float alpha);
+    public static native void test();
 }

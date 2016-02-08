@@ -12,7 +12,6 @@ android {
         ndk {
             moduleName "ImageFilters"
             ldLibs "log"
-            cFlags "-fopenmp"
         }
     }
 

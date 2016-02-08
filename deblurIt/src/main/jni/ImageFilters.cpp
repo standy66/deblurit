@@ -481,4 +481,70 @@ extern "C" {
         generalizedConvolution(env, obj, psf, image, w, h, 0, kernelWidth, kernelHeight, convolve_ffts);
         LOGI("Convolution success");
     }
+
+    static double now_ms() {
+        struct timespec res;
+        clock_gettime(CLOCK_REALTIME, &res);
+        return 1000.0 * res.tv_sec + (double) res.tv_nsec / 1e6;
+    }
+
+    int size = 100000000;
+    int num_threads = 4;
+    long long* thread_res;
+    char* ar;
+
+    void* worker(void* arg) {
+        int thread_id = *((int*)arg);
+        int block_size = size / num_threads;
+        int start = thread_id * block_size;
+        int end = start + block_size;
+        long long sum = 0;
+        for (int i = start; i < end; ++i) {
+            sum += ar[i];
+        }
+        thread_res[thread_id] = sum;
+        return NULL;
+    }
+
+    JNIEXPORT void JNICALL Java_tk_standy66_deblurit_tools_LibImageFilters_test(JNIEnv *env, jobject *obj) {
+        LOGI("In test");
+
+        thread_res = (long long*) malloc(sizeof(long long) * num_threads);
+        ar = (char*) malloc(sizeof(char) * size);
+
+        for (int i = 0; i < size; ++i) {
+            ar[i] = (char) rand();
+        }
+
+        double start_time = now_ms();
+        int* thread_ids;
+        pthread_t* threads;
+
+        threads = (pthread_t*) malloc(sizeof(pthread_t) * num_threads);
+        thread_ids = (int*) malloc(sizeof(int) * num_threads);
+        for (int i = 0; i < num_threads; ++i) {
+            thread_ids[i] = i;
+        }
+
+        for (int i = 0; i < num_threads; ++i) {
+            pthread_create(&threads[i], NULL, worker, &thread_ids[i]);
+        }
+        for (int i = 0; i < num_threads; ++i) {
+            void* val;
+            pthread_join(threads[i], &val);
+        }
+        //worker(thread_ids);
+
+        long long final_sum = 0;
+        for (int i = 0; i < num_threads; ++i) {
+            final_sum += thread_res[i];
+        }
+
+        free(thread_ids);
+        free(threads);
+        double delta = now_ms() - start_time;
+        LOGI("Delta time: %f", delta);
+        free(ar);
+        free(thread_res);
+    }
 }
