@@ -168,7 +168,7 @@ public class DeconvolutionPreviewActivity extends PreviewActivity {
         }
 
         previewImage = (ImageView)findViewById(R.id.preview_image);
-        previewImage.setOnClickListener(new OnClickListener() {
+        /*previewImage.setOnClickListener(new OnClickListener() {
 
             public void onClick(View v) {
                 if (!imageSelected)
@@ -203,7 +203,7 @@ public class DeconvolutionPreviewActivity extends PreviewActivity {
                 startActivity(processActivityIntent);
 
             }
-        });
+        });*/
 
         previewButton = (Button)findViewById(R.id.preview_button);
         processButton = (Button)findViewById(R.id.process_button);

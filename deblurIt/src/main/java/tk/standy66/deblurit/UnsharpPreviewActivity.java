@@ -209,7 +209,7 @@ public class UnsharpPreviewActivity extends PreviewActivity {
         });
 
         previewImage = (ImageView)findViewById(R.id.preview_image);
-        previewImage.setOnClickListener(new OnClickListener() {
+        /*previewImage.setOnClickListener(new OnClickListener() {
 
             public void onClick(View v) {
                 if (!imageSelected)
@@ -243,7 +243,7 @@ public class UnsharpPreviewActivity extends PreviewActivity {
                 Intent processActivityIntent = new Intent(UnsharpPreviewActivity.this, ProgressActivity.class);
                 startActivity(processActivityIntent);
             }
-        });
+        });*/
 
         processButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {

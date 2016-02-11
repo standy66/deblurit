@@ -3,206 +3,189 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-    
-    <TextView
-        android:id="@+id/subtitle" android:text="@string/subtitle_deconvolution_preview_activity"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/preview_image"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/textsize_title"
-        android:layout_gravity="center_horizontal"
-        android:padding="@dimen/preview_title_padding"/>
-    
-    <LinearLayout
-        android:layout_weight="5"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="@dimen/preview_padding">
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:src="@drawable/preview_standart" />
 
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical">
 
-        <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:layout_weight="4"
-                android:scrollbars="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/preview_left_padding">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/preview_left_padding">
+                android:paddingTop="15dip">
 
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/blurtype_label"
+                    android:layout_width="@dimen/preview_label_row_width"
                     android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/preview_seekbar_padding_vertical">
-
-                    <TextView
-                        android:id="@+id/blurtype_label"
-                        android:layout_width="@dimen/preview_label_row_width"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:paddingRight="@dimen/preview_seekbar_padding_horizontal"
-                        android:text="@string/preview_label_type"
-                        android:textSize="@dimen/textsize_normal" />
-
-                    <Spinner
-                        android:id="@+id/preview_deconvolution_spinner"
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/preview_seekbar_padding_vertical">
-
-                    <TextView
-                        android:id="@+id/strength_label"
-                        android:layout_width="@dimen/preview_label_row_width"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:paddingRight="@dimen/preview_seekbar_padding_horizontal"
-                        android:text="@string/preview_label_smoothness"
-                        android:textSize="@dimen/textsize_normal" />
-
-                    <SeekBar
-                        android:id="@+id/strength_seekbar"
-                        android:layout_width="0dip"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:max="100" />
-
-                    <TextView
-                        android:id="@+id/strength_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:paddingLeft="@dimen/preview_seekbar_padding_horizontal"
-                        android:text="@string/constant_zero"
-                        android:textSize="@dimen/textsize_normal" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/preview_seekbar_padding_vertical">
-
-                    <TextView
-                        android:id="@+id/angle_label"
-                        android:layout_width="@dimen/preview_label_row_width"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:paddingRight="@dimen/preview_seekbar_padding_horizontal"
-                        android:text="@string/preview_label_angle"
-                        android:textSize="@dimen/textsize_normal" />
-
-                    <SeekBar
-                        android:id="@+id/angle_seekbar"
-                        android:layout_width="0dip"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:max="180" />
-
-                    <TextView
-                        android:id="@+id/angle_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:paddingLeft="@dimen/preview_seekbar_padding_horizontal"
-                        android:text="@string/constant_zero"
-                        android:textSize="@dimen/textsize_normal" />
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/preview_seekbar_padding_vertical">
-
-                    <TextView
-                        android:id="@+id/length_label"
-                        android:layout_width="@dimen/preview_label_row_width"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:paddingRight="@dimen/preview_seekbar_padding_horizontal"
-                        android:text="@string/preview_label_length"
-                        android:textSize="@dimen/textsize_normal" />
-
-                    <SeekBar
-                        android:id="@+id/length_seekbar"
-                        android:layout_width="0dip"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:max="@string/preview_max_radius_value" />
-
-                    <TextView
-                        android:id="@+id/length_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:paddingLeft="@dimen/preview_seekbar_padding_horizontal"
-                        android:text="@string/constant_zero"
-                        android:textSize="@dimen/textsize_normal" />
-
-                </LinearLayout>
-
-
-
-                <CheckBox
-                    android:id="@+id/preview_checkbox_grayscale"
-                    android:text="@string/preview_checkbox_grayscale"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/preview_seekbar_padding_vertical"
+                    android:layout_gravity="center"
+                    android:paddingRight="@dimen/preview_seekbar_padding_horizontal"
+                    android:text="@string/preview_label_type"
                     android:textSize="@dimen/textsize_normal" />
 
+                <Spinner
+                    android:id="@+id/preview_deconvolution_spinner"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content" />
+            </LinearLayout>
 
-                <LinearLayout
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/preview_seekbar_padding_vertical">
+
+                <TextView
+                    android:id="@+id/strength_label"
+                    android:layout_width="@dimen/preview_label_row_width"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
+                    android:paddingRight="@dimen/preview_seekbar_padding_horizontal"
+                    android:text="@string/preview_label_smoothness"
+                    android:textSize="@dimen/textsize_normal" />
+
+                <SeekBar
+                    android:id="@+id/strength_seekbar"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:max="100" />
+
+                <TextView
+                    android:id="@+id/strength_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/preview_seekbar_padding_vertical"
-                    >
-                    <Button
-                        android:id="@+id/preview_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="@string/preview_button_preview"
-                        android:textSize="@dimen/textsize_normal" />
-
-                    <Button
-                        android:id="@+id/process_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="@string/preview_button_process"
-                        android:textSize="@dimen/textsize_normal" />
-                </LinearLayout>
+                    android:layout_gravity="center"
+                    android:paddingLeft="@dimen/preview_seekbar_padding_horizontal"
+                    android:text="@string/constant_zero"
+                    android:textSize="@dimen/textsize_normal" />
 
             </LinearLayout>
-        </ScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/preview_seekbar_padding_vertical">
+
+                <TextView
+                    android:id="@+id/angle_label"
+                    android:layout_width="@dimen/preview_label_row_width"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingRight="@dimen/preview_seekbar_padding_horizontal"
+                    android:text="@string/preview_label_angle"
+                    android:textSize="@dimen/textsize_normal" />
+
+                <SeekBar
+                    android:id="@+id/angle_seekbar"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:max="180" />
+
+                <TextView
+                    android:id="@+id/angle_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingLeft="@dimen/preview_seekbar_padding_horizontal"
+                    android:text="@string/constant_zero"
+                    android:textSize="@dimen/textsize_normal" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/preview_seekbar_padding_vertical">
+
+                <TextView
+                    android:id="@+id/length_label"
+                    android:layout_width="@dimen/preview_label_row_width"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingRight="@dimen/preview_seekbar_padding_horizontal"
+                    android:text="@string/preview_label_length"
+                    android:textSize="@dimen/textsize_normal" />
+
+                <SeekBar
+                    android:id="@+id/length_seekbar"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:max="@string/preview_max_radius_value" />
+
+                <TextView
+                    android:id="@+id/length_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingLeft="@dimen/preview_seekbar_padding_horizontal"
+                    android:text="@string/constant_zero"
+                    android:textSize="@dimen/textsize_normal" />
+
+            </LinearLayout>
 
 
 
-        <ImageView
-            android:layout_weight="3"
-            android:id="@+id/preview_image"
-            android:layout_width="wrap_content"
-            android:layout_height="0dip"
-            android:src="@drawable/preview_standart" />
+            <CheckBox
+                android:id="@+id/preview_checkbox_grayscale"
+                android:text="@string/preview_checkbox_grayscale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/preview_seekbar_padding_vertical"
+                android:textSize="@dimen/textsize_normal"
+                android:visibility="gone" />
 
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/preview_seekbar_padding_vertical"
+                >
+                <Button
+                    android:id="@+id/preview_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/preview_button_preview"
+                    android:textSize="@dimen/textsize_normal" />
+
+                <Button
+                    android:id="@+id/process_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/preview_button_process"
+                    android:textSize="@dimen/textsize_normal" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
 </LinearLayout>

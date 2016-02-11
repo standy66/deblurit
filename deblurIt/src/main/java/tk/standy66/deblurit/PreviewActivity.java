@@ -33,7 +33,6 @@ import tk.standy66.deblurit.tools.ImageUtils;
 import tk.standy66.deblurit.tools.MutableDouble;
 import tk.standy66.deblurit.tools.SessionSettings;
 import tk.standy66.deblurit.tools.Utils;
-import tk.standy66.helper.ScrollablePreview;
 
 
 public class PreviewActivity extends AppCompatActivity implements ActionBar.OnNavigationListener {
@@ -46,7 +45,6 @@ public class PreviewActivity extends AppCompatActivity implements ActionBar.OnNa
     protected String choosedBitmapUri;
     protected String scaledBitmapUri;
     protected Bitmap scaledBitmap;
-    protected ScrollablePreview previewLayout;
     protected int curPosition;
     protected float previewScaleFactor;
     private int previewSampling;
