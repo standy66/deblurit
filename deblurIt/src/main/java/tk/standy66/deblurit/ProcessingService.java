@@ -12,6 +12,8 @@ import android.os.Binder;
 import android.os.Environment;
 import android.os.IBinder;
 import android.os.Parcelable;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.widget.RemoteViews;
@@ -31,11 +33,10 @@ import tk.standy66.deblurit.tools.LibImageFilters;
 public class ProcessingService extends IntentService {
 
     public interface ProcessingServiceResultListener {
-        public void onResult(String result);
+        void onResult(String result);
     }
 
     private NotificationManager notificationManager;
-    private Notification notification;
     private int curProgress = 0;
     private int maxProgress = 0;
     private long lastMills = 0;
@@ -46,7 +47,6 @@ public class ProcessingService extends IntentService {
 
     public class ProcessingServiceBinder extends Binder {
         public float getTimeRemaining() {
-            //Log.i("ProcessingService", String.format("%d %f", curProgress, speed));
             return (float)curProgress / speed;
         }
 
@@ -70,39 +70,36 @@ public class ProcessingService extends IntentService {
     }
 
     private String saveImage(Bitmap b) {
-        try {
-            String state = Environment.getExternalStorageState();
+        String state = Environment.getExternalStorageState();
 
-            if (Environment.MEDIA_MOUNTED.equals(state)) {
-                try {
-                    String path = gs.getSavePath();
-                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
-                    Date now = new Date();
-                    Log.i("ProcessingService", "Selected format is " + gs.getFormat());
-                    String fileName = formatter.format(now) + (gs.getFormat().equals("JPEG") ? ".jpg" : ".png");
-                    File file = new File(path);
-                    file.mkdirs();
-                    file = new File(file, fileName);
-                    file.createNewFile();
-                    FileOutputStream fOut = new FileOutputStream(file);
+        if (Environment.MEDIA_MOUNTED.equals(state)) {
+            try {
+                String path = gs.getSavePath();
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+                Date now = new Date();
+                Log.i("ProcessingService", "Selected format is " + gs.getFormat());
+                String fileName = formatter.format(now) + (gs.getFormat().equals("JPEG") ? ".jpg" : ".png");
+                File file = new File(path);
+                file.mkdirs();
+                file = new File(file, fileName);
+                file.createNewFile();
+                FileOutputStream fOut = new FileOutputStream(file);
 
-                    b.compress((gs.getFormat().equals("JPEG") ? CompressFormat.JPEG : CompressFormat.PNG), 100, fOut);
+                b.compress((gs.getFormat().equals("JPEG") ? CompressFormat.JPEG : CompressFormat.PNG), 100, fOut);
 
-                    fOut.flush();
-                    fOut.close();
-                    Log.i("ProcessingService", file.getAbsolutePath());
+                fOut.flush();
+                fOut.close();
+                Log.i("ProcessingService", file.getAbsolutePath());
 
-                    return file.getAbsolutePath();
-                } catch (IOException e) {
-                    Toast.makeText(this, R.string.toast_error_creating_file, Toast.LENGTH_LONG).show();
-                    Log.e("ProcessingService", e.getMessage());
-                    return null;
-                }
-            } else
+                return file.getAbsolutePath();
+            } catch (IOException e) {
+                Toast.makeText(this, R.string.toast_error_creating_file, Toast.LENGTH_LONG).show();
+                Log.e("ProcessingService", e.getMessage());
                 return null;
-        } finally {
-            b.recycle();
-        }
+            }
+        } else
+            return null;
+
     }
 
     private boolean handling = false;
@@ -123,10 +120,11 @@ public class ProcessingService extends IntentService {
         p.run();
         if (cancelled)
             return;
-        String s = saveImage(p.getImage().toBitmap());
+        Bitmap bmp = p.getImage().toBitmap();
+        String s = saveImage(bmp);
         binder.listener.onResult(s);
         Log.i("ProcessingService", s);
-        sendReadyNotif(s);
+        sendReadyNotif(s, bmp);
         handling = false;
         ready = true;
     }
@@ -136,6 +134,7 @@ public class ProcessingService extends IntentService {
         return binder;
     }
 
+    //called from native code
     public int onProgressUpdate(int progress) {
         if (maxProgress == 0)
             maxProgress = progress;
@@ -149,8 +148,11 @@ public class ProcessingService extends IntentService {
         speed = (float)dp / (float)dt * 1000;
 
         curProgress = progress;
-        notification.contentView.setProgressBar(R.id.notification_progressbar, maxProgress, maxProgress - curProgress, false);
-        notification.contentView.setTextViewText(R.id.notification_pb_value, String.format("%d%%", (int)(100 * (float)(maxProgress - curProgress) / maxProgress)));
+
+        Notification notification = getProgressNotificationBuilder()
+                .setContentText(String.format("Progress: %d%%", (int)(100 * (float)(maxProgress - curProgress) / maxProgress)))
+                .setProgress(maxProgress, maxProgress - curProgress, false)
+                .build();
         notificationManager.notify(0, notification);
         if (cancelled) {
             Log.i("ProcessingService", "Send cancelled");
@@ -160,36 +162,58 @@ public class ProcessingService extends IntentService {
     }
 
     void createNotif() {
-        Intent intent = new Intent(this, ProgressActivity.class);
-        PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
-
-        notification = new Notification(R.drawable.ic_launcher, "Processing", System.currentTimeMillis());
-        notification.contentIntent = pIntent;
-        notification.contentView = new RemoteViews(getApplicationContext().getPackageName(), R.layout.notification_progress);
-        notification.flags |= Notification.FLAG_ONGOING_EVENT;
-        notification.contentView.setProgressBar(R.id.notification_progressbar, 100, 1, false);
-        notification.contentView.setTextViewText(R.id.notification_pb_value, "0%");
-        java.text.DateFormat df = DateFormat.getTimeFormat(App.getApplicationContext());
-        String time = df.format(new Date());
-        notification.contentView.setTextViewText(R.id.text_timestamp, time);
+        Notification notification = getProgressNotificationBuilder()
+                .setContentText("Progress: 0%")
+                .setProgress(100, 0, false)
+                .build();
 
         notificationManager.notify(0, notification);
     }
 
-    private static int pendingIntentVersion = 0;
-    void sendReadyNotif(String imageUrl) {
-        Intent intent = new Intent(this, FinishActivity.class);
-        intent.putExtra(FinishActivity.IMAGE_URI, imageUrl);
-        PendingIntent pIntent = PendingIntent.getActivity(this, pendingIntentVersion++, intent, 0);
-
-        notification.contentView = new RemoteViews(getApplicationContext().getPackageName(), R.layout.notification_ready);
-        notification.flags &= ~Notification.FLAG_ONGOING_EVENT;
-        notification.contentIntent = pIntent;
-        java.text.DateFormat df = DateFormat.getTimeFormat(App.getApplicationContext());
-        String time = df.format(new Date());
-        notification.contentView.setTextViewText(R.id.text_timestamp, time);
-
+    void sendReadyNotif(String imageUrl, Bitmap bitmap) {
+        Notification notification = getReadyNotificationBuilder(imageUrl, bitmap).build();
         notificationManager.notify(0, notification);
+    }
+
+    private NotificationCompat.Builder getReadyNotificationBuilder(String imageUrl, Bitmap bitmap) {
+        Intent resultIntent = new Intent(this, FinishActivity.class);
+        resultIntent.putExtra(FinishActivity.IMAGE_URI, imageUrl);
+
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        stackBuilder.addParentStack(ProgressActivity.class);
+        stackBuilder.addNextIntent(resultIntent);
+        PendingIntent resultPendingIntent =
+                stackBuilder.getPendingIntent(
+                        0,
+                        PendingIntent.FLAG_UPDATE_CURRENT
+                );
+        NotificationCompat.BigPictureStyle style = new NotificationCompat.BigPictureStyle();
+        style.bigPicture(bitmap);
+        style.setSummaryText("Click to open");
+
+        return new NotificationCompat.Builder(this)
+                .setContentTitle("Image is ready")
+                .setContentText("Touch to open")
+                .setContentIntent(resultPendingIntent)
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setStyle(style);
+    }
+
+    private NotificationCompat.Builder getProgressNotificationBuilder() {
+        Intent resultIntent = new Intent(this, ProgressActivity.class);
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        stackBuilder.addParentStack(ProgressActivity.class);
+        stackBuilder.addNextIntent(resultIntent);
+        PendingIntent resultPendingIntent =
+                stackBuilder.getPendingIntent(
+                        0,
+                        PendingIntent.FLAG_UPDATE_CURRENT
+                );
+        return new NotificationCompat.Builder(this)
+                .setContentTitle("Image is processing")
+                .setContentText("Progress: 0%")
+                .setContentIntent(resultPendingIntent)
+                .setSmallIcon(R.mipmap.ic_launcher);
     }
 
     @Override
