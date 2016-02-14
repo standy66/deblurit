@@ -1,28 +1,19 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item android:id="@+id/menu_takephoto"
-        android:title="@string/menu_takephoto"
-        android:icon="@drawable/action_take_photo"
-        android:showAsAction="always"/>
-    
-    <item android:id="@+id/menu_open"
-        android:title="@string/menu_open"
-        android:icon="@drawable/open"
-        android:showAsAction="always"/>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     
     <item android:id="@+id/menu_settings"
         android:title="@string/menu_settings"
-        android:showAsAction="never" />
+        app:showAsAction="never" />
 
     <item android:id="@+id/menu_about"
         android:title="@string/menu_about"
-        android:showAsAction="never" />
+        app:showAsAction="never" />
     
     <item android:id="@+id/menu_rateapp"
         android:title="@string/menu_rateapp"
-        android:showAsAction="never" />
+        app:showAsAction="never" />
     
     <item android:id="@+id/menu_help"
         android:title="@string/menu_help"
-        android:showAsAction="never" />
+        app:showAsAction="never" />
 </menu>

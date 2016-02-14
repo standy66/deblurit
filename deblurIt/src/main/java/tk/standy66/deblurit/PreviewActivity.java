@@ -245,14 +245,6 @@ public class PreviewActivity extends AppCompatActivity implements ActionBar.OnNa
             break;
 
 
-        case R.id.menu_open:
-            postGetContent(GET_CONTENT_OPEN_FILE);
-            break;
-
-        case R.id.menu_takephoto:
-            postGetContent(GET_CONTENT_TAKE_PHOTO);
-            break;
-
         case R.id.menu_rateapp:
             Intent marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(
                     "http://play.google.com/store/apps/details?id=tk.standy66.deblurit"));
