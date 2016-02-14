@@ -32,7 +32,6 @@ public class UnsharpPreviewActivity extends PreviewActivity {
     private TextView strengthValue, radiusValue, angleValue, lengthValue;
     private Button previewButton, processButton;
     private CheckBox grayscaleCheckBox;
-    private TypeSpinnerAdapter adapter;
 
 
     public UnsharpPreviewActivity() {
@@ -46,8 +45,6 @@ public class UnsharpPreviewActivity extends PreviewActivity {
         curPosition = 0;
         getSupportActionBar().setSelectedNavigationItem(curPosition);
         blurType = BlurType.GaussianBlur;
-        adapter = new TypeSpinnerAdapter(this, R.layout.type_spinner_adapter, getResources().getStringArray(R.array.blur_types));
-        adapter.setDropDownViewResource(R.layout.type_spinner_adapter);
         reloadView();
     }
 
@@ -79,7 +76,6 @@ public class UnsharpPreviewActivity extends PreviewActivity {
             break;
         }
 
-        ((TextView)findViewById(R.id.subtitle)).setText(getResources().getString(R.string.subtitle_unsharp_preview_activity));
         ((TextView)findViewById(R.id.strength_label)).setText(getResources().getString(R.string.preview_label_strength));
 
         spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -106,7 +102,7 @@ public class UnsharpPreviewActivity extends PreviewActivity {
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
-                // TODO Auto-generated method stub
+
 
             }
         });

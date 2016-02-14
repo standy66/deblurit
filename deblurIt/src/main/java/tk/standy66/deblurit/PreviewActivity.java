@@ -27,6 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import tk.standy66.deblurit.tools.App;
+import tk.standy66.deblurit.tools.CapturePhotoUtils;
 import tk.standy66.deblurit.tools.GlobalSettings;
 import tk.standy66.deblurit.tools.Image;
 import tk.standy66.deblurit.tools.ImageUtils;
@@ -37,6 +38,7 @@ import tk.standy66.deblurit.tools.Utils;
 
 public class PreviewActivity extends AppCompatActivity implements ActionBar.OnNavigationListener {
     ImageView previewImage;
+    private final static String LOG_TAG = PreviewActivity.class.getSimpleName();
 
     private static final int PICKFILE_RESULT_CODE = 1;
     private static final int TAKEPHOTO_RESULT_CODE = 2;
@@ -133,26 +135,19 @@ public class PreviewActivity extends AppCompatActivity implements ActionBar.OnNa
 
         case GET_CONTENT_TAKE_PHOTO:
             Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            /*File storageDir = new File (
-                    Environment.getExternalStorageDirectory()
-                    + Environment.DIRECTORY_PICTURES
-            );*/
-            //storageDir.mkdirs();
-            String timeStamp =
-                    new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-            String path = globalSettings.getSavePath();
-
+            File f = null;
             try {
-                File f = new File(path + "/temp/");
-                f.mkdirs();
-                f = new File(f, timeStamp + ".jpg");
-                f.createNewFile();
-                capturedImage = f;
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(capturedImage));
+                f = CapturePhotoUtils.createImageFile(this);
             } catch (IOException e) {
-                Toast.makeText(this, R.string.toast_error_creating_file, Toast.LENGTH_LONG).show();
+                e.printStackTrace();
             }
-            startActivityForResult(takePictureIntent, TAKEPHOTO_RESULT_CODE);
+            if (f != null) {
+                capturedImage = f;
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
+                startActivityForResult(takePictureIntent, TAKEPHOTO_RESULT_CODE);
+            } else {
+                Toast.makeText(this, R.string.take_photo_error, Toast.LENGTH_LONG).show();
+            }
             break;
         }
     }
@@ -261,7 +256,7 @@ public class PreviewActivity extends AppCompatActivity implements ActionBar.OnNa
         case R.id.menu_rateapp:
             Intent marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(
                     "http://play.google.com/store/apps/details?id=tk.standy66.deblurit"));
-                startActivity(marketIntent);		
+                startActivity(marketIntent);
             break;
 
         case R.id.menu_help:

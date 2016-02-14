@@ -39,7 +39,7 @@
     <string name="subtitle_finish_activity">You\'re almost done!</string>
     <string name="subtitle_help_activity">Help</string>
     <string name="description_progress_activity">Feel free to close this window. You will be notified, when it\'s done.</string>
-    <string name="description_finish_activity">Click on thumbnail to open the image</string>
+    <string name="description_finish_activity">Click on thumbnail to save and open the image, or choose save from drop-down menu.</string>
     <string name="preview_label_radius">Radius</string>
     <string name="preview_label_strength">Strength</string>
     <string name="preview_checkbox_grayscale">Grayscale</string>
@@ -115,5 +115,7 @@ You can select the type of PSF and change its basic setting (like radius, length
         
     ]]></string>
     <string name="about_website" translatable="false">asd</string>
+    <string name="take_photo_error">Error while taking picture, try again later</string>
+    <string name="finish_saved_toast">Saved</string>
 
 </resources>

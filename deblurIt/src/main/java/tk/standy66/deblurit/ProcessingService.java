@@ -12,6 +12,7 @@ import android.os.Binder;
 import android.os.Environment;
 import android.os.IBinder;
 import android.os.Parcelable;
+import android.provider.MediaStore;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.text.format.DateFormat;
@@ -20,6 +21,7 @@ import android.widget.RemoteViews;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -27,6 +29,7 @@ import java.util.Date;
 
 import tk.standy66.deblurit.filtering.Pipeline;
 import tk.standy66.deblurit.tools.App;
+import tk.standy66.deblurit.tools.CapturePhotoUtils;
 import tk.standy66.deblurit.tools.GlobalSettings;
 import tk.standy66.deblurit.tools.LibImageFilters;
 
@@ -70,36 +73,16 @@ public class ProcessingService extends IntentService {
     }
 
     private String saveImage(Bitmap b) {
-        String state = Environment.getExternalStorageState();
-
-        if (Environment.MEDIA_MOUNTED.equals(state)) {
-            try {
-                String path = gs.getSavePath();
-                SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
-                Date now = new Date();
-                Log.i("ProcessingService", "Selected format is " + gs.getFormat());
-                String fileName = formatter.format(now) + (gs.getFormat().equals("JPEG") ? ".jpg" : ".png");
-                File file = new File(path);
-                file.mkdirs();
-                file = new File(file, fileName);
-                file.createNewFile();
-                FileOutputStream fOut = new FileOutputStream(file);
-
-                b.compress((gs.getFormat().equals("JPEG") ? CompressFormat.JPEG : CompressFormat.PNG), 100, fOut);
-
-                fOut.flush();
-                fOut.close();
-                Log.i("ProcessingService", file.getAbsolutePath());
-
-                return file.getAbsolutePath();
-            } catch (IOException e) {
-                Toast.makeText(this, R.string.toast_error_creating_file, Toast.LENGTH_LONG).show();
-                Log.e("ProcessingService", e.getMessage());
-                return null;
-            }
-        } else
-            return null;
-
+        FileOutputStream fos = null;
+        File f = null;
+        try {
+            f = new File(getFilesDir(), "result" + (gs.getFormat().equals("JPEG") ? ".jpg" : ".png"));
+            fos = new FileOutputStream(f);
+            b.compress(gs.getFormat().equals("JPEG") ? CompressFormat.JPEG : CompressFormat.PNG, 90, fos);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return f.getAbsolutePath();
     }
 
     private boolean handling = false;

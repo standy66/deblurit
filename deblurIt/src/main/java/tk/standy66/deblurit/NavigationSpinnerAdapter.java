@@ -20,7 +20,6 @@ public class NavigationSpinnerAdapter extends ArrayAdapter<Pair<String, String>>
 
     @Override
     public void setDropDownViewResource(int resource) {
-        // TODO Auto-generated method stub
         dropDownResourceId = resource;
         super.setDropDownViewResource(resource);
     }

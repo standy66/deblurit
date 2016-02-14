@@ -3,15 +3,20 @@ package tk.standy66.deblurit.tools;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.net.Uri;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Images;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Android internals have been modified to store images in the media folder with
@@ -29,7 +34,9 @@ public class CapturePhotoUtils {
     public static final String insertImage(ContentResolver cr,
                                            Bitmap source,
                                            String title,
-                                           String description) {
+                                           String description,
+                                           Bitmap.CompressFormat compressFormat,
+                                           int compressQuality) {
 
         ContentValues values = new ContentValues();
         values.put(Images.Media.TITLE, title);
@@ -49,7 +56,7 @@ public class CapturePhotoUtils {
             if (source != null) {
                 OutputStream imageOut = cr.openOutputStream(url);
                 try {
-                    source.compress(Bitmap.CompressFormat.JPEG, 50, imageOut);
+                    source.compress(compressFormat, compressQuality, imageOut);
                 } finally {
                     imageOut.close();
                 }
@@ -123,5 +130,18 @@ public class CapturePhotoUtils {
         } catch (IOException ex) {
             return null;
         }
+    }
+
+    public static File createImageFile(Context context) throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+
+        File storageDir = context.getExternalFilesDir(null);
+        File image = null;
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            image = File.createTempFile(imageFileName, ".jpg", storageDir);
+        }
+        return image;
     }
 }

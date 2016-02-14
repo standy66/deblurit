@@ -33,7 +33,6 @@ public class DeconvolutionPreviewActivity extends PreviewActivity {
     private TextView strengthValue, radiusValue, angleValue, lengthValue;
     private Button previewButton, processButton;
     private CheckBox grayscaleCheckBox;
-    private TypeSpinnerAdapter adapter;
 
 
     public DeconvolutionPreviewActivity() {
@@ -47,8 +46,6 @@ public class DeconvolutionPreviewActivity extends PreviewActivity {
         curPosition = 1;
         getSupportActionBar().setSelectedNavigationItem(curPosition);
         blurType = BlurType.OutOfFocusBlur;
-        adapter = new TypeSpinnerAdapter(this, R.layout.type_spinner_adapter, getResources().getStringArray(R.array.blur_types));
-        adapter.setDropDownViewResource(R.layout.type_spinner_adapter);
         reloadView();
     }
 
@@ -112,7 +109,6 @@ public class DeconvolutionPreviewActivity extends PreviewActivity {
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
-                // TODO Auto-generated method stub
 
             }
         });

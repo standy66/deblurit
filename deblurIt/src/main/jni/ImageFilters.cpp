@@ -333,10 +333,6 @@ extern "C" {
             jbyteArray row = (jbyteArray)env->GetObjectArrayElement(image, i);
             jboolean copyMade = 0;
             jbyte* prow = (jbyte*)env->GetByteArrayElements(row, &copyMade);
-            if (copyMade) {
-                ERRI("VM has made a copy of input data");
-                //throw 1;
-            }
             for (int j = 0; j < h; j++) {
                 int val = (int)(pimage[i * hceil + j] / wceil / hceil);
                 if (val < 0) val = 0;
@@ -450,7 +446,6 @@ extern "C" {
             }
             free(channel);
             (*func)(kernelFFT, channelFFT, maxceil, maxceil, lambda);
-            //TODO: Here's to
             channel = ifft2d(channelFFT, maxceil, maxceil, progress);
             if (channel == NULL) {
                 free(kernelFFT);

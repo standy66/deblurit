@@ -34,27 +34,13 @@ public class Pipeline implements Parcelable {
         desiredHeight = Integer.MAX_VALUE;
     }
 
-    public Pipeline(String bitmapUri, Filter filter, ProcessingContext processingContext, int desiredWidth, int desiredHeight) {
-        this.bitmapUri = bitmapUri;
-        this.filter = filter;
-        this.processingContext = processingContext;
-        this.desiredHeight = desiredHeight;
-        this.desiredWidth = desiredWidth;
-    }
-
-    public Pipeline(Bitmap bitmap, Filter filter, ProcessingContext processingContext) {
-        this.bitmap = bitmap;;
-        this.filter = filter;
-        this.processingContext = processingContext;
-    }
-
     public Pipeline(Parcel in) {
         Log.i("Pipeline", "reading bitmapUri");
         bitmapUri = in.readString();
         Log.i("Pipeline", "reading filter");
-        filter = (Filter)in.readParcelable(Filter.class.getClassLoader());
+        filter = in.readParcelable(Filter.class.getClassLoader());
         Log.i("Pipeline", "reading context");
-        processingContext = (ProcessingContext)in.readParcelable(ProcessingContext.class.getClassLoader());
+        processingContext = in.readParcelable(ProcessingContext.class.getClassLoader());
         bitmap = in.readParcelable(Bitmap.class.getClassLoader());
         desiredWidth = in.readInt();
         desiredHeight = in.readInt();
@@ -87,10 +73,7 @@ public class Pipeline implements Parcelable {
             postProcessingTool.run();
             image = postProcessingTool.getImage();
             Log.i("pipeline", String.format("All time: %fms", (float)(System.currentTimeMillis() - time)));
-        } catch (FileNotFoundException e) {
-            // TODO: handle exception
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

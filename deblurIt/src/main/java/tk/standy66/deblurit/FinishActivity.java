@@ -1,11 +1,16 @@
 package tk.standy66.deblurit;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -16,16 +21,25 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import tk.standy66.deblurit.tools.CapturePhotoUtils;
+import tk.standy66.deblurit.tools.GlobalSettings;
 import tk.standy66.deblurit.tools.Utils;
 
 public class FinishActivity extends AppCompatActivity {
 
+    //TODO: display "SAVED" in this activity
+
     public static final String IMAGE_URI = "tk.standy66.deblurit.IMAGE_URI";
 
     private String image;
-    private Uri uri;
+    private Uri uri = null;
+    private Bitmap bmp;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,21 +59,88 @@ public class FinishActivity extends AppCompatActivity {
                 int scaling = Math.min(opts.outWidth / reqWidth, opts.outHeight / reqHeight);
                 opts.inJustDecodeBounds = false;
                 opts.inSampleSize = scaling;
-                uri = Uri.parse("file://" + image);
-                Log.i("FinishActivity", uri.toString());
-                Bitmap bmp = BitmapFactory.decodeFile(image, opts);
+                bmp = BitmapFactory.decodeFile(image, opts);
                 iv.setImageBitmap(bmp);
 
-                String result = CapturePhotoUtils.insertImage(getContentResolver(), bmp, uri.getLastPathSegment(), "DeblurIt result");
-
-                Log.i("FinishActivity", result);
                 iv.setOnClickListener(new OnClickListener() {
                     public void onClick(View v) {
-                        Intent viewIntent = new Intent(Intent.ACTION_VIEW);
-                        viewIntent.setDataAndType(uri, "image/*");
-                        startActivity(viewIntent);
+                        if (ContextCompat.checkSelfPermission(FinishActivity.this,
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                                != PackageManager.PERMISSION_GRANTED) {
+
+                                ActivityCompat.requestPermissions(FinishActivity.this,
+                                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                                        0);
+                        } else {
+                            if (uri == null) {
+                                uri = saveToGallery();
+                                Toast.makeText(FinishActivity.this, R.string.finish_saved_toast, Toast.LENGTH_LONG).show();
+                            }
+                            Intent viewIntent = new Intent(Intent.ACTION_VIEW);
+                            viewIntent.setDataAndType(uri, "image/*");
+                            startActivity(viewIntent);
+                        }
                     }
                 });
+            }
+        }
+    }
+
+
+
+    private Uri saveToGallery() {
+        File dir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "DeblurIt");
+        dir.mkdirs();
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        GlobalSettings gs = new GlobalSettings();
+        File f = new File(dir, imageFileName + (gs.getFormat().equals("JPEG") ? ".jpg" : ".png"));
+        try {
+            f.createNewFile();
+            FileOutputStream fos = new FileOutputStream(f);
+            bmp.compress(gs.getFormat().equals("JPEG") ? Bitmap.CompressFormat.JPEG : Bitmap.CompressFormat.PNG, 90, fos);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+        Uri contentUri = Uri.fromFile(f);
+        mediaScanIntent.setData(contentUri);
+        sendBroadcast(mediaScanIntent);
+        return contentUri;
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 0: {
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    if (uri == null) {
+                        uri = saveToGallery();
+                        Toast.makeText(this, R.string.finish_saved_toast, Toast.LENGTH_LONG).show();
+                    }
+                    Intent viewIntent = new Intent(Intent.ACTION_VIEW);
+                    viewIntent.setDataAndType(uri, "image/*");
+                    startActivity(viewIntent);
+                } else {
+
+                }
+                return;
+            }
+
+            case 1: {
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    if (uri == null) {
+                        uri = saveToGallery();
+                        Toast.makeText(this, R.string.finish_saved_toast, Toast.LENGTH_LONG).show();
+                    }
+                } else {
+
+                }
+                return;
             }
         }
     }
@@ -79,17 +160,20 @@ public class FinishActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-        case R.id.menu_delete:
-            Log.i("FinishActivity", "Deleting file: " + image);
-            File f = new File(image);
-            boolean deleted = f.delete();
-            if (!deleted)
-                Toast.makeText(FinishActivity.this, getResources().getString(R.string.toast_error_deleting_file), Toast.LENGTH_LONG).show();
-            else
-                finish();
-            break;
         case R.id.menu_save:
-            finish();
+            if (ContextCompat.checkSelfPermission(FinishActivity.this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    != PackageManager.PERMISSION_GRANTED) {
+
+                ActivityCompat.requestPermissions(FinishActivity.this,
+                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        1);
+            } else {
+                if (uri == null) {
+                    uri = saveToGallery();
+                    Toast.makeText(FinishActivity.this, R.string.finish_saved_toast, Toast.LENGTH_LONG).show();
+                }
+            }
             break;
         }
         return super.onOptionsItemSelected(item);
