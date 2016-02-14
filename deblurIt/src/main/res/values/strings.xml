@@ -114,8 +114,12 @@
 You can select the type of PSF and change its basic setting (like radius, length, angle) by manipulating appropriate seek bars.<p> Preview button generates thumbnail that shows how the result may look like. By default, resulting images are saved to /sdcard/Pictures/DeblurIt/ folder.
         
     ]]></string>
-    <string name="about_website" translatable="false">asd</string>
+    <string name="about_website" translatable="false">http://standy.me</string>
     <string name="take_photo_error">Error while taking picture, try again later</string>
     <string name="finish_saved_toast">Saved</string>
+    <string name="notification_processing_label">Image is processing</string>
+    <string name="notification_processing_text">Progress: </string>
+    <string name="notification_ready_label">Image is ready</string>
+    <string name="notification_ready_text">Touch to open</string>
 
 </resources>

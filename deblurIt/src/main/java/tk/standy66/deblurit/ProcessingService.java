@@ -133,7 +133,8 @@ public class ProcessingService extends IntentService {
         curProgress = progress;
 
         Notification notification = getProgressNotificationBuilder()
-                .setContentText(String.format("Progress: %d%%", (int)(100 * (float)(maxProgress - curProgress) / maxProgress)))
+                .setContentText(getString(R.string.notification_processing_text) +
+                        String.format("%d%%", (int)(100 * (float)(maxProgress - curProgress) / maxProgress)))
                 .setProgress(maxProgress, maxProgress - curProgress, false)
                 .build();
         notificationManager.notify(0, notification);
@@ -146,7 +147,6 @@ public class ProcessingService extends IntentService {
 
     void createNotif() {
         Notification notification = getProgressNotificationBuilder()
-                .setContentText("Progress: 0%")
                 .setProgress(100, 0, false)
                 .build();
 
@@ -172,11 +172,11 @@ public class ProcessingService extends IntentService {
                 );
         NotificationCompat.BigPictureStyle style = new NotificationCompat.BigPictureStyle();
         style.bigPicture(bitmap);
-        style.setSummaryText("Click to open");
+        style.setSummaryText(getString(R.string.notification_ready_text));
 
         return new NotificationCompat.Builder(this)
-                .setContentTitle("Image is ready")
-                .setContentText("Touch to open")
+                .setContentTitle(getString(R.string.notification_ready_label))
+                .setContentText(getString(R.string.notification_ready_text))
                 .setContentIntent(resultPendingIntent)
                 .setSmallIcon(R.drawable.ic_camera_white_24dp)
                 .setStyle(style);
@@ -193,8 +193,8 @@ public class ProcessingService extends IntentService {
                         PendingIntent.FLAG_UPDATE_CURRENT
                 );
         return new NotificationCompat.Builder(this)
-                .setContentTitle("Image is processing")
-                .setContentText("Progress: 0%")
+                .setContentTitle(getString(R.string.notification_processing_label))
+                .setContentText(getString(R.string.notification_processing_text) + "0%")
                 .setContentIntent(resultPendingIntent)
                 .setSmallIcon(R.drawable.ic_camera_white_24dp);
     }

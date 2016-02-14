@@ -508,7 +508,7 @@ extern "C" {
         ar = (char*) malloc(sizeof(char) * size);
 
         for (int i = 0; i < size; ++i) {
-            ar[i] = (char) rand();
+            ar[i] = (char) i;
         }
 
         double start_time = now_ms();
