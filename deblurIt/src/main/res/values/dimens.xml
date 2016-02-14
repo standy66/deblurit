@@ -8,8 +8,8 @@
     <dimen name="preview_size">200dip</dimen>
     <dimen name="preview_left_padding">15dip</dimen>
     <dimen name="textsize_large">22sp</dimen>
-    <dimen name="textsize_title">14pt</dimen>
-    <dimen name="textsize_normal">12pt</dimen>
+    <dimen name="textsize_title">14sp</dimen>
+    <dimen name="textsize_normal">12sp</dimen>
     <dimen name="preview_checkbox_margin">15dip</dimen>
     <dimen name="spinner_header_textsize">16dip</dimen>
     <dimen name="spinner_addinfo_textsize">14dip</dimen>

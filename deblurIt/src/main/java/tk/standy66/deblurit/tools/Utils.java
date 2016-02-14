@@ -34,7 +34,7 @@ public final class Utils {
         try {
             is = resolver.openInputStream(contentUri);
             Bitmap bmp = BitmapFactory.decodeStream(is);
-            File outputDir = context.getCacheDir(); // context being the Activity pointer
+            File outputDir = context.getCacheDir();
             File outputFile = File.createTempFile("file", "jpg", outputDir);
             FileOutputStream fos = new FileOutputStream(outputFile);
             bmp.compress(Bitmap.CompressFormat.JPEG, 90, fos);
@@ -44,21 +44,6 @@ public final class Utils {
         } catch (IOException e) {
             return null;
         }
-
-        /*String[] proj = { MediaStore.Images.Media.DATA };
-        Cursor cursor = App.getApplicationContext().getContentResolver().query(contentUri, proj, null, null, null);
-        Log.i("Utils", contentUri.toString());
-        if (cursor == null)
-            return contentUri.toString();
-        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-        String result;
-        if (cursor.moveToNext()) {
-            result = cursor.getString(column_index);
-        } else {
-            result = null;
-        }
-        cursor.close();
-        return result;*/
     }
 
     public static void analyticsLogScreenChange(Application application, String screenName) {

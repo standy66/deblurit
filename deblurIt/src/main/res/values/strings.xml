@@ -121,5 +121,6 @@ You can select the type of PSF and change its basic setting (like radius, length
     <string name="notification_processing_text">Progress: </string>
     <string name="notification_ready_label">Image is ready</string>
     <string name="notification_ready_text">Touch to open</string>
+    <string name="finish_save_permission_denied_toast">Couldn\'t save to gallery without permission!</string>
 
 </resources>
