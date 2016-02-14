@@ -3,36 +3,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-    
-    <TextView
-        android:id="@+id/subtitle" android:text="@string/subtitle_deconvolution_preview_activity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/textsize_title"
-        android:layout_gravity="center_horizontal"
-        android:padding="@dimen/preview_title_padding"/>
-    
+    android:orientation="horizontal"
+    android:padding="@dimen/preview_padding">
+
+
     <LinearLayout
-        android:layout_weight="5"
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:orientation="horizontal"
-        android:padding="@dimen/preview_padding">
+        android:orientation="vertical"
+        android:layout_weight="3"
+        android:layout_width="0dip"
+        android:layout_height="fill_parent">
 
-        <LinearLayout
-            android:layout_width="0dip"
-            android:layout_weight="3"
-            android:layout_height="fill_parent"
-            android:orientation="vertical"
-            android:gravity="center">
+        <ImageView
+            android:id="@+id/preview_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true" />
 
 
-        <ScrollView
-            android:layout_width="fill_parent"
-            android:layout_height="0dip"
-            android:layout_weight="1"
-            android:scrollbars="vertical">
+    </LinearLayout>
+
+    <ScrollView
+
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:scrollbars="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -126,17 +122,6 @@
             </LinearLayout>
 
 
-
-            <CheckBox
-                android:id="@+id/preview_checkbox_grayscale"
-                android:text="@string/preview_checkbox_grayscale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/preview_seekbar_padding_vertical"
-                android:textSize="@dimen/textsize_normal"
-                android:visibility="visible" />
-
-
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent" >
@@ -165,25 +150,7 @@
             </RelativeLayout>
 
         </LinearLayout>
-        </ScrollView>
+    </ScrollView>
 
 
-            </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_weight="2"
-            android:layout_width="0dip"
-            android:layout_height="fill_parent">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/preview_image"
-                android:layout_weight="1" />
-
-
-        </LinearLayout>
-
-    </LinearLayout>
 </LinearLayout>

@@ -147,17 +147,6 @@
             </LinearLayout>
 
 
-
-            <CheckBox
-                android:id="@+id/preview_checkbox_grayscale"
-                android:text="@string/preview_checkbox_grayscale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/preview_seekbar_padding_vertical"
-                android:textSize="@dimen/textsize_normal"
-                android:visibility="gone" />
-
-
             <LinearLayout
                 android:layout_gravity="center"
                 android:layout_alignParentBottom="true"

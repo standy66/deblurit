@@ -32,7 +32,6 @@ public class DeconvolutionPreviewActivity extends PreviewActivity {
     private SeekBar strengthSeekbar, radiusSeekbar, angleSeekbar, lengthSeekbar;
     private TextView strengthValue, radiusValue, angleValue, lengthValue;
     private Button previewButton, processButton;
-    private CheckBox grayscaleCheckBox;
 
 
     public DeconvolutionPreviewActivity() {
@@ -113,8 +112,6 @@ public class DeconvolutionPreviewActivity extends PreviewActivity {
             }
         });
 
-        grayscaleCheckBox = (CheckBox)findViewById(R.id.preview_checkbox_grayscale);
-
         strengthSeekbar = (SeekBar)findViewById(R.id.strength_seekbar);
         strengthValue = (TextView)findViewById(R.id.strength_value);
         strengthSeekbar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
@@ -164,42 +161,7 @@ public class DeconvolutionPreviewActivity extends PreviewActivity {
         }
 
         previewImage = (ImageView)findViewById(R.id.preview_image);
-        /*previewImage.setOnClickListener(new OnClickListener() {
 
-            public void onClick(View v) {
-                if (!imageSelected)
-                    return;
-                Blur b = null;
-                float strength = ((float)Integer.parseInt(strengthValue.getText().toString()) + 4) / 5000;
-                switch (blurType) {
-                case OutOfFocusBlur:
-                    float radius = Float.parseFloat(radiusValue.getText().toString());
-                    b = new OutOfFocusBlur(radius);
-                    break;
-
-                case GaussianBlur:
-                    radius = Float.parseFloat(radiusValue.getText().toString());
-                    b = new GaussianBlur(radius);
-                    break;
-
-                case MotionBlur:
-                    float angle = (float) Math.toRadians(Integer.parseInt(angleValue.getText().toString()));
-                    float length = Float.parseFloat(lengthValue.getText().toString());
-                    b = new MotionBlur(angle, length);
-                    break;
-                }
-                if (b == null)
-                    return;
-                Filter f = new WienerFilter(b, strength);
-
-                ProcessingContext processingContext = new ProcessingContext(grayscaleCheckBox.isChecked());
-                Pipeline p = new Pipeline(choosedBitmapUri, f, processingContext, 1024, 1024);
-                startService(new Intent(DeconvolutionPreviewActivity.this, ProcessingService.class).putExtra("pipeline", p));
-                Intent processActivityIntent = new Intent(DeconvolutionPreviewActivity.this, ProgressActivity.class);
-                startActivity(processActivityIntent);
-
-            }
-        });*/
 
         previewButton = (Button)findViewById(R.id.preview_button);
         processButton = (Button)findViewById(R.id.process_button);
@@ -270,7 +232,7 @@ public class DeconvolutionPreviewActivity extends PreviewActivity {
                     return;
                 Filter f = new WienerFilter(b, strength);
 
-                ProcessingContext processingContext = new ProcessingContext(grayscaleCheckBox.isChecked());
+                ProcessingContext processingContext = new ProcessingContext(false);
                 Pipeline p = new Pipeline(choosedBitmapUri, f, processingContext);
                 startService(new Intent(DeconvolutionPreviewActivity.this, ProcessingService.class).putExtra("pipeline", p));
                 Intent processActivityIntent = new Intent(DeconvolutionPreviewActivity.this, ProgressActivity.class);
