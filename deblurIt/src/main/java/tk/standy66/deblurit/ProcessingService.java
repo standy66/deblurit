@@ -178,7 +178,7 @@ public class ProcessingService extends IntentService {
                 .setContentTitle("Image is ready")
                 .setContentText("Touch to open")
                 .setContentIntent(resultPendingIntent)
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.drawable.ic_camera_white_24dp)
                 .setStyle(style);
     }
 
@@ -196,7 +196,7 @@ public class ProcessingService extends IntentService {
                 .setContentTitle("Image is processing")
                 .setContentText("Progress: 0%")
                 .setContentIntent(resultPendingIntent)
-                .setSmallIcon(R.mipmap.ic_launcher);
+                .setSmallIcon(R.drawable.ic_camera_white_24dp);
     }
 
     @Override
