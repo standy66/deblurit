@@ -13,16 +13,6 @@
         android:padding="15dp"
         android:text="Header"
         android:textColor="@color/primary_text"
-        style="?attr/spinnerDropDownItemStyle" />
-
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/spinner_addinfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="addinfo"
-        android:textColor="@color/secondary_text"
-        android:layout_marginTop="5dip"
-        style="?attr/spinnerDropDownItemStyle"  />
+        android:textAppearance="?android:textAppearanceLarge"/>
 
 </LinearLayout>

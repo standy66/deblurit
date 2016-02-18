@@ -9,7 +9,8 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/description_progress_activity" />
+        android:text="@string/description_progress_activity"
+        android:textAppearance="?android:textAppearanceMedium" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -30,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/progressBar"
             android:layout_centerHorizontal="true"
-            android:textSize="@dimen/textsize_normal"
+            android:textAppearance="?android:textAppearanceMedium"
             android:text="Time remaining: 60s" />
 
     </RelativeLayout>

@@ -96,5 +96,7 @@
     <string name="notification_ready_label">Изображение готово</string>
     <string name="notification_ready_text">Нажмите, чтобы открыть</string>
     <string name="finish_saved_toast">Сохранено</string>
+    <string name="finish_save_permission_denied_toast">Невозможно сохранить без разрешения</string>
+    <string name="time_remaining_unknown">Осталось: неизвестно</string>
 
 </resources>

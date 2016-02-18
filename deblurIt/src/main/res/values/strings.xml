@@ -57,8 +57,8 @@
     <string name="key_format" translatable="false">tk.standy66.deblurit.tools.GlobalSettings_FORMAT</string>
     <string name="mode" translatable="false">tk.standy66.deblurit.tools.GlobalSettings_MODE</string>
     <string name="constant_zero" translatable="false">0</string>
-    <string name="preview_max_radius_value" translatable="false">640</string>
-    <string name="preview_max_length_value" translatable="false">640</string>
+    <string name="preview_max_radius_value" translatable="false">1000</string>
+    <string name="preview_max_length_value" translatable="false">1000</string>
     <string name="name_save_path_preference">Save path</string>
     <string name="name_max_output_preference">Maximum output size</string>
     <string name="name_format_preference">Output format</string>
@@ -122,5 +122,6 @@ You can select the type of PSF and change its basic setting (like radius, length
     <string name="notification_ready_label">Image is ready</string>
     <string name="notification_ready_text">Touch to open</string>
     <string name="finish_save_permission_denied_toast">Couldn\'t save to gallery without permission!</string>
+    <string name="time_remaining_unknown">Time remaining: unknown</string>
 
 </resources>

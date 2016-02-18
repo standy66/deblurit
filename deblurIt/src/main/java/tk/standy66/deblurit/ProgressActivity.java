@@ -34,8 +34,13 @@ public class ProgressActivity extends AppCompatActivity implements ProcessingSer
             runOnUiThread(new Runnable() {
                 public void run() {
                     float timeRemaining = binder.getTimeRemaining();
-                    if (progressTextView != null)
-                        progressTextView.setText(String.format(getResources().getString(R.string.progress_time_remaining), (int)timeRemaining));
+                    if (progressTextView != null) {
+                        if (timeRemaining < 1e-3) {
+                            progressTextView.setText(R.string.time_remaining_unknown);
+                        } else {
+                            progressTextView.setText(String.format(getResources().getString(R.string.progress_time_remaining), (int) timeRemaining));
+                        }
+                    }
                 }
             });
         }

@@ -34,9 +34,7 @@ public class NavigationSpinnerAdapter extends ArrayAdapter<Pair<String, String>>
         }
         if (choice != null) {
             TextView header = (TextView)view.findViewById(R.id.spinner_header);
-            TextView addinfo = (TextView)view.findViewById(R.id.spinner_addinfo);
             header.setText(choice.second);
-            addinfo.setText(choice.first);
         }
         return(view);
     }

@@ -74,11 +74,12 @@ public class FinishActivity extends AppCompatActivity {
 
 
     private Uri saveToGallery() {
-        File dir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "DeblurIt");
+
+        GlobalSettings gs = new GlobalSettings();
+        File dir = new File(gs.getSavePath());
         dir.mkdirs();
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
-        GlobalSettings gs = new GlobalSettings();
         File f = new File(dir, imageFileName + (gs.getFormat().equals("JPEG") ? ".jpg" : ".png"));
         try {
             f.createNewFile();

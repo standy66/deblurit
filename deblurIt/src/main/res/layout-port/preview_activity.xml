@@ -34,9 +34,8 @@
                 android:layout_width="@dimen/preview_label_row_width"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:paddingRight="@dimen/preview_seekbar_padding_horizontal"
                 android:text="@string/preview_label_type"
-                android:textSize="@dimen/textsize_normal" />
+                android:textAppearance="?android:textAppearanceMedium"/>
 
             <Spinner
                 android:id="@+id/preview_deconvolution_spinner"
@@ -54,9 +53,8 @@
                 android:layout_width="@dimen/preview_label_row_width"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:paddingRight="@dimen/preview_seekbar_padding_horizontal"
-                android:text="@string/preview_label_smoothness"
-                android:textSize="@dimen/textsize_normal" />
+                android:textAppearance="?android:textAppearanceMedium"
+                android:text="@string/preview_label_smoothness" />
 
             <SeekBar
                 android:id="@+id/strength_seekbar"
@@ -71,9 +69,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:paddingLeft="@dimen/preview_seekbar_padding_horizontal"
                 android:text="@string/constant_zero"
-                android:textSize="@dimen/textsize_normal" />
+                android:textAppearance="?android:textAppearanceMedium" />
 
         </LinearLayout>
 
@@ -87,9 +84,8 @@
                 android:layout_width="@dimen/preview_label_row_width"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:paddingRight="@dimen/preview_seekbar_padding_horizontal"
-                android:text="@string/preview_label_radius"
-                android:textSize="@dimen/textsize_normal" />
+                android:textAppearance="?android:textAppearanceMedium"
+                android:text="@string/preview_label_radius" />
 
             <SeekBar
                 android:id="@+id/radius_seekbar"
@@ -104,12 +100,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:paddingLeft="@dimen/preview_seekbar_padding_horizontal"
                 android:text="@string/constant_zero"
-                android:textSize="@dimen/textsize_normal" />
+                android:textAppearance="?android:textAppearanceMedium" />
 
         </LinearLayout>
-
 
             <LinearLayout
             android:layout_gravity="center"
@@ -123,7 +117,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/preview_button_preview"
-                android:textSize="@dimen/textsize_normal" />
+                android:textAppearance="?android:textAppearanceMedium"
+                android:fontFamily="sans-serif-smallcaps"/>
 
             <Button
                 android:id="@+id/process_button"
@@ -131,7 +126,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/preview_button_process"
-                android:textSize="@dimen/textsize_normal" />
+                android:textAppearance="?android:textAppearanceMedium"
+                android:fontFamily=""/>
         </LinearLayout>
 
     </LinearLayout>
