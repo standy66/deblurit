@@ -10,12 +10,12 @@ public class Defaults {
         Log.i("Defaults", String.format("Total memory allowed to use: %fMB", maxMemory));
         if (maxMemory >= 16)
             ans = 1024;
-        if (maxMemory >= 32)
-            ans = 1024 + 512;
-        if (maxMemory >= 48)
+        if (maxMemory >= 64)
             ans = 2048;
-        if (maxMemory >= 80)
+        if (maxMemory >= 192)
             ans = 4096;
+        if (maxMemory >= 256)
+            ans = 8192;
         return ans;
     }
 
