@@ -13,6 +13,6 @@
         android:padding="15dp"
         android:text="Header"
         android:textColor="@color/primary_text"
-        android:textAppearance="?android:textAppearanceLarge"/>
+        android:textAppearance="?android:textAppearanceMedium"/>
 
 </LinearLayout>

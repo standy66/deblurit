@@ -183,12 +183,13 @@ public class DeconvolutionPreviewActivity extends PreviewActivity {
         strengthSeekbar = (SeekBar)findViewById(R.id.strength_seekbar);
         strengthValue = (TextView)findViewById(R.id.strength_value);
         strengthSeekbar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-            public void onStopTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                previewShouldUpdate();
+            }
             public void onStartTrackingTouch(SeekBar seekBar) {}
             public void onProgressChanged(SeekBar seekBar, int progress,
                     boolean fromUser) {
                 strengthValue.setText(String.valueOf(progress + 1));
-                previewShouldUpdate();
             }
         });
 
@@ -196,36 +197,39 @@ public class DeconvolutionPreviewActivity extends PreviewActivity {
             angleSeekbar = (SeekBar)findViewById(R.id.angle_seekbar);
             angleValue = (TextView)findViewById(R.id.angle_value);
             angleSeekbar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-                public void onStopTrackingTouch(SeekBar seekBar) {}
+                public void onStopTrackingTouch(SeekBar seekBar) {
+                    previewShouldUpdate();
+                }
                 public void onStartTrackingTouch(SeekBar seekBar) {}
                 public void onProgressChanged(SeekBar seekBar, int progress,
                         boolean fromUser) {
                     angleValue.setText(String.valueOf(progress));
-                    previewShouldUpdate();
                 }
             });
 
             lengthSeekbar = (SeekBar)findViewById(R.id.length_seekbar);
             lengthValue = (TextView)findViewById(R.id.length_value);
             lengthSeekbar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-                public void onStopTrackingTouch(SeekBar seekBar) {}
+                public void onStopTrackingTouch(SeekBar seekBar) {
+                    previewShouldUpdate();
+                }
                 public void onStartTrackingTouch(SeekBar seekBar) {}
                 public void onProgressChanged(SeekBar seekBar, int progress,
                         boolean fromUser) {
                     lengthValue.setText(String.valueOf((float)progress / 10));
-                    previewShouldUpdate();
                 }
             });
         } else {
             radiusSeekbar = (SeekBar)findViewById(R.id.radius_seekbar);
             radiusValue = (TextView)findViewById(R.id.radius_value);
             radiusSeekbar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-                public void onStopTrackingTouch(SeekBar seekBar) {}
+                public void onStopTrackingTouch(SeekBar seekBar) {
+                    previewShouldUpdate();
+                }
                 public void onStartTrackingTouch(SeekBar seekBar) {}
                 public void onProgressChanged(SeekBar seekBar, int progress,
                         boolean fromUser) {
                     radiusValue.setText(String.valueOf((float)progress / 10));
-                    previewShouldUpdate();
                 }
             });
         }

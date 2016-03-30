@@ -107,31 +107,6 @@
 
         </LinearLayout>
 
-            <LinearLayout
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/preview_seekbar_padding_vertical">
-
-            <Button
-                android:id="@+id/preview_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/preview_button_preview"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:fontFamily="sans-serif-smallcaps"/>
-
-            <Button
-                android:id="@+id/process_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/preview_button_process"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:fontFamily="sans-serif-smallcaps"/>
-        </LinearLayout>
-
     </LinearLayout>
 
     </ScrollView>

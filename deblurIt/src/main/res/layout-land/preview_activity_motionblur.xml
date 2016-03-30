@@ -151,36 +151,6 @@
 
             </LinearLayout>
 
-
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent" >
-                <LinearLayout
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    >
-                    <Button
-                        android:id="@+id/preview_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:fontFamily="sans-serif-smallcaps"
-                        android:text="@string/preview_button_preview"
-                        android:textAppearance="?android:textAppearanceMedium" />
-
-                    <Button
-                        android:id="@+id/process_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:fontFamily="sans-serif-smallcaps"
-                        android:text="@string/preview_button_process"
-                        android:textAppearance="?android:textAppearanceMedium" />
-                </LinearLayout>
-            </RelativeLayout>
-
         </LinearLayout>
 
     </ScrollView>

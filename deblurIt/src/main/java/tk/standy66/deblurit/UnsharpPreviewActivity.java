@@ -180,12 +180,13 @@ public class UnsharpPreviewActivity extends PreviewActivity {
         strengthSeekbar.setProgress(70);
         strengthValue = (TextView)findViewById(R.id.strength_value);
         strengthSeekbar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-            public void onStopTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                previewShouldUpdate();
+            }
             public void onStartTrackingTouch(SeekBar seekBar) {}
             public void onProgressChanged(SeekBar seekBar, int progress,
                     boolean fromUser) {
                 strengthValue.setText(String.valueOf(progress + 1));
-                previewShouldUpdate();
             }
         });
 
@@ -193,12 +194,13 @@ public class UnsharpPreviewActivity extends PreviewActivity {
             angleSeekbar = (SeekBar)findViewById(R.id.angle_seekbar);
             angleValue = (TextView)findViewById(R.id.angle_value);
             angleSeekbar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-                public void onStopTrackingTouch(SeekBar seekBar) {}
+                public void onStopTrackingTouch(SeekBar seekBar) {
+                    previewShouldUpdate();
+                }
                 public void onStartTrackingTouch(SeekBar seekBar) {}
                 public void onProgressChanged(SeekBar seekBar, int progress,
                         boolean fromUser) {
                     angleValue.setText(String.valueOf(progress));
-                    previewShouldUpdate();
                 }
             });
 
@@ -206,12 +208,13 @@ public class UnsharpPreviewActivity extends PreviewActivity {
             lengthSeekbar.setMax(300);
             lengthValue = (TextView)findViewById(R.id.length_value);
             lengthSeekbar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-                public void onStopTrackingTouch(SeekBar seekBar) {}
+                public void onStopTrackingTouch(SeekBar seekBar) {
+                    previewShouldUpdate();
+                }
                 public void onStartTrackingTouch(SeekBar seekBar) {}
                 public void onProgressChanged(SeekBar seekBar, int progress,
                         boolean fromUser) {
                     lengthValue.setText(String.valueOf((float)progress / 10));
-                    previewShouldUpdate();
                 }
             });
         } else {
@@ -220,12 +223,13 @@ public class UnsharpPreviewActivity extends PreviewActivity {
             radiusSeekbar.setProgress(80);
             radiusValue = (TextView)findViewById(R.id.radius_value);
             radiusSeekbar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-                public void onStopTrackingTouch(SeekBar seekBar) {}
+                public void onStopTrackingTouch(SeekBar seekBar) {
+                    previewShouldUpdate();
+                }
                 public void onStartTrackingTouch(SeekBar seekBar) {}
                 public void onProgressChanged(SeekBar seekBar, int progress,
                         boolean fromUser) {
                     radiusValue.setText(String.valueOf((float)progress / 10));
-                    previewShouldUpdate();
                 }
             });
         }
