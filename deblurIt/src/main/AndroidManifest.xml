@@ -105,7 +105,12 @@
 
         <activity
             android:name=".HelpActivity"
-            android:label="@string/title_help_activity"/>
+            android:label="@string/title_help_activity"
+            android:parentActivityName=".WelcomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".WelcomeActivity" />
+        </activity>
 
     </application>
 

@@ -106,13 +106,12 @@
     <string name="title_activity_welcome" translatable="false">DeblurIt Pro</string>
     <string name="title_activity_help">HelpActivity</string>
     <string name="help_message"><![CDATA[
-        This program uses 2 different filters to make your pictures better.<p>
-        Unsharp mask filter is the best fit for small defects. <br>
-        Deconvolution filter uses progressive algorithms to remove large defects.<p>
-        This filters need PSF to sharpen images. PSF is a recipe of how the focused image turns into a blurred one. PSF looks just like image:<p>
-<img src="circle"/><p>
-You can select the type of PSF and change its basic setting (like radius, length, angle) by manipulating appropriate seek bars.<p> Preview button generates thumbnail that shows how the result may look like. By default, resulting images are saved to /sdcard/Pictures/DeblurIt/ folder.
-        
+        This app uses 2 different approaches to make your photos look better.<p>
+        Automatic approach is the best fit for small defects. <p>
+        Manual approach uses deconvolution filter and progressive algorithms to eliminate large defects,
+        but it requires some knowledge of how the image was defected. <p>
+        You can try to guess this parameters by using sliders and choosing appropriate blur type.<p>
+        Feel free to play with sliders to get best results.
     ]]></string>
     <string name="about_website" translatable="false">http://standy.me</string>
     <string name="take_photo_error">Error while taking picture, try again later</string>
