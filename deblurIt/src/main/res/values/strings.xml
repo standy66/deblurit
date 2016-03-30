@@ -95,9 +95,9 @@
     <string name="feedback_send_toast">Thank you</string>
     <string name="title_activity_about">About this app</string>
     <string name="about_name" translatable="false">DeblurIt Pro</string>
-    <string name="about_version">Version 1.5.0</string>
+    <string name="about_version">Version 1.6.0</string>
     <string name="about_copyright">Copyright 2016 Andrew Stepanov</string>
-    <string name="about_description">This application uses software under APACHE License (ActionBarSherlock, ACRA, JSSEProvider), CDDL-1.0 License(javamail-android). Some assets is licensed under Creative Commons Attribution 3.0 Unported License.  You can find third party licensing informationg by clicking the button below.</string>
+    <string name="about_description">This application uses software under APACHE License (Android-RateThisApp). Some assets are licensed under Creative Commons Attribution License.  You can find third party licensing information by clicking the button below.</string>
     <string name="about_thirdparty_button">Third party information</string>
     <string name="title_activity_text_viewer">Third party licenses</string>
     <string name="textviewver_button_ok">OK</string>
@@ -113,7 +113,7 @@
         You can try to guess this parameters by using sliders and choosing appropriate blur type.<p>
         Feel free to play with sliders to get best results.
     ]]></string>
-    <string name="about_website" translatable="false">http://standy.me</string>
+    <string name="about_website" translatable="false">http://standy.rocks</string>
     <string name="take_photo_error">Error while taking picture, try again later</string>
     <string name="finish_saved_toast">Saved</string>
     <string name="notification_processing_label">Image is processing</string>

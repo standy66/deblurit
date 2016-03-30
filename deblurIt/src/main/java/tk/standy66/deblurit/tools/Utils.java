@@ -55,6 +55,15 @@ public final class Utils {
         t.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
+    public static void analyticsLogEvent(Application application, String screenName, String eventCategory, String event) {
+        DeblurItApplication a = (DeblurItApplication) application;
+        Tracker t = a.getDefaultTracker();
+
+        Log.i("Analytics", "Setting screen name: " + screenName);
+        t.setScreenName("Image~" + screenName);
+        t.send(new HitBuilders.EventBuilder().setAction(event).setCategory(eventCategory).build());
+    }
+
     public static float getMaxMemory() {
         return Runtime.getRuntime().maxMemory() / 1048576.0f;
     }

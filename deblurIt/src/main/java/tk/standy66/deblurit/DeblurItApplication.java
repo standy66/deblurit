@@ -27,7 +27,6 @@ public class DeblurItApplication extends Application {
             mTracker = analytics.newTracker(R.xml.global_tracker);
             Log.i("Analytics", "Dry run is: " + BuildConfig.DEBUG);
             analytics.setDryRun(BuildConfig.DEBUG);
-
         }
         return mTracker;
     }

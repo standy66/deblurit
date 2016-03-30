@@ -5,3 +5,7 @@ Legal code: http://creativecommons.org/licenses/by/3.0/legalcode
 II. Material icons are licensed under CC BY 4.0
 Link: https://design.google.com/icons/
 Legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+III. Android-RateThisApp is licences under Apache License 2.0
+Link: https://github.com/kobakei/Android-RateThisApp
+Legal code: https://raw.githubusercontent.com/kobakei/Android-RateThisApp/master/LICENSE

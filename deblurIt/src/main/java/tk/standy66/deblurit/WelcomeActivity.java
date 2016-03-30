@@ -1,6 +1,5 @@
 package tk.standy66.deblurit;
 
-import android.app.Application;
 import android.support.v7.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -19,13 +17,13 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.AnalyticsReceiver;
+import com.kobakei.ratethisapp.RateThisApp;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
 
 import tk.standy66.deblurit.filtering.Pipeline;
 import tk.standy66.deblurit.filtering.ProcessingContext;
@@ -137,6 +135,26 @@ public class WelcomeActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         App.setApplicationContext(getApplicationContext());
         super.onCreate(savedInstanceState);
+        RateThisApp.Config config = new RateThisApp.Config(3, 5);
+        RateThisApp.init(config);
+        RateThisApp.setCallback(new RateThisApp.Callback() {
+            @Override
+            public void onYesClicked() {
+                Utils.analyticsLogEvent(getApplication(), "Welcome", "RateApp", "Rate-YES");
+            }
+
+            @Override
+            public void onNoClicked() {
+                Utils.analyticsLogEvent(getApplication(), "Welcome", "RateApp", "Rate-NO");
+            }
+
+            @Override
+            public void onCancelClicked() {
+                Utils.analyticsLogEvent(getApplication(), "Welcome", "RateApp", "Rate-CANCEL");
+            }
+        });
+        RateThisApp.onStart(this);
+        RateThisApp.showRateDialogIfNeeded(this);
         gs = new GlobalSettings();
         setContentView(R.layout.activity_welcome);
         TextView takePhoto = (TextView)findViewById(R.id.take_photo_button);
@@ -224,7 +242,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         case R.id.menu_rateapp:
             Intent marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(
-                    "http://play.google.com/store/apps/details?id=tk.standy66.deblurit"));
+                    "market://details?id=tk.standy66.deblurit"));
                 startActivity(marketIntent);
             break;
 
