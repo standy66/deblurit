@@ -1,19 +1,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    
-    <item android:id="@+id/menu_settings"
+    <!-- <item android:id="@+id/menu_settings"
         android:title="@string/menu_settings"
         app:showAsAction="never" />
 
     <item android:id="@+id/menu_about"
         android:title="@string/menu_about"
         app:showAsAction="never" />
-    
+
     <item android:id="@+id/menu_rateapp"
         android:title="@string/menu_rateapp"
         app:showAsAction="never" />
-    
+
     <item android:id="@+id/menu_help"
         android:title="@string/menu_help"
-        app:showAsAction="never" />
+        app:showAsAction="never" /> -->
+
+    <item android:id="@+id/process"
+        android:title="Process"
+        android:icon="@drawable/ic_send_white_48dp"
+        app:showAsAction="always"/>
+
+
 </menu>

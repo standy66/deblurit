@@ -1,5 +1,6 @@
 package tk.standy66.deblurit;
 
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -36,7 +37,7 @@ import tk.standy66.deblurit.tools.SessionSettings;
 import tk.standy66.deblurit.tools.Utils;
 
 
-public class PreviewActivity extends AppCompatActivity implements ActionBar.OnNavigationListener {
+public abstract class PreviewActivity extends AppCompatActivity implements ActionBar.OnNavigationListener {
     ImageView previewImage;
     private final static String LOG_TAG = PreviewActivity.class.getSimpleName();
 
@@ -53,6 +54,9 @@ public class PreviewActivity extends AppCompatActivity implements ActionBar.OnNa
     protected SessionSettings sessionSettings;
     protected GlobalSettings globalSettings;
     protected int layoutId = 0;
+
+    protected abstract void previewShouldUpdate();
+    protected abstract void beginProcessing();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -225,8 +229,6 @@ public class PreviewActivity extends AppCompatActivity implements ActionBar.OnNa
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
-
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
     }
@@ -234,27 +236,9 @@ public class PreviewActivity extends AppCompatActivity implements ActionBar.OnNa
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-
-        case R.id.menu_settings:
-            startActivity(new Intent(this, GlobalPreferenceActivity.class));
-            break;
-           
-            
-        case R.id.menu_about:
-            startActivity(new Intent(this, AboutActivity.class));
-            break;
-
-
-        case R.id.menu_rateapp:
-            Intent marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(
-                    "http://play.google.com/store/apps/details?id=tk.standy66.deblurit"));
-                startActivity(marketIntent);
-            break;
-
-        case R.id.menu_help:
-            Intent i = new Intent(this, HelpActivity.class);
-            startActivity(i);
-            break;
+            case R.id.process:
+                beginProcessing();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

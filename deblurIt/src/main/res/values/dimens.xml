@@ -1,8 +1,8 @@
 <resources>
 
     <dimen name="preview_padding">10dip</dimen>
-    <dimen name="preview_seekbar_padding_horizontal">10dip</dimen>
-    <dimen name="preview_seekbar_padding_vertical">20dip</dimen>
+    <dimen name="preview_seekbar_padding_horizontal">20dp</dimen>
+    <dimen name="preview_seekbar_padding_vertical">20dp</dimen>
     <dimen name="preview_label_row_width">100dp</dimen>
     <dimen name="preview_title_padding">10dip</dimen>
     <dimen name="preview_size">200dip</dimen>

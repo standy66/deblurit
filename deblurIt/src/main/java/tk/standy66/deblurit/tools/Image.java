@@ -53,9 +53,12 @@ public class Image {
         int h = bmp.getHeight();
         Image result = new Image(ImageType.RGB, w, h);
 
+        int[] pixels = new int[w * h];
+        bmp.getPixels(pixels, 0, w, 0, 0, w, h);
+
         for (int i = 0; i < w; i++)
             for (int j = 0; j < h; j++) {
-                int pixel = bmp.getPixel(i, j);
+                int pixel = pixels[j * w + i];
                 int b = pixel & 0xFF;
                 int g = (pixel >> 8) & 0xFF;
                 int r = (pixel >> 16) & 0xFF;
@@ -73,6 +76,7 @@ public class Image {
     public Bitmap toBitmap() {
         boolean grayscale = isGrayscale();
         Bitmap bitmap = Bitmap.createBitmap(width, height, Config.ARGB_8888);
+        int[] pixels = new int[width * height];
         for (int i = 0; i < width; i++)
             for (int j = 0; j < height; j++) {
                 int R, G, B;
@@ -83,8 +87,9 @@ public class Image {
                     G = (unsignedToBytes(channels[1][i][j]));
                     B = (unsignedToBytes(channels[2][i][j]));
                 }
-                bitmap.setPixel(i, j, Color.rgb(R, G, B));
+                pixels[j * width + i] = Color.rgb(R, G, B);
             }
+        bitmap.setPixels(pixels, 0, width, 0, 0, width, height);
         return bitmap;
     }
 

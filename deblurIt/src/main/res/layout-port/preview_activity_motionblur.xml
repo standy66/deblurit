@@ -47,8 +47,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="@dimen/preview_seekbar_padding_vertical">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/strength_label"
@@ -62,6 +61,8 @@
                     android:id="@+id/strength_seekbar"
                     android:layout_width="0dip"
                     android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/preview_seekbar_padding_vertical"
+                    android:paddingTop="@dimen/preview_seekbar_padding_vertical"
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:max="100" />
@@ -78,8 +79,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="@dimen/preview_seekbar_padding_vertical">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/angle_label"
@@ -90,6 +90,8 @@
                     android:textAppearance="?android:textAppearanceMedium" />
 
                 <SeekBar
+                    android:paddingBottom="@dimen/preview_seekbar_padding_vertical"
+                    android:paddingTop="@dimen/preview_seekbar_padding_vertical"
                     android:id="@+id/angle_seekbar"
                     android:layout_width="0dip"
                     android:layout_height="wrap_content"
@@ -110,8 +112,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="@dimen/preview_seekbar_padding_vertical">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/length_label"
@@ -122,6 +123,8 @@
                     android:textAppearance="?android:textAppearanceMedium" />
 
                 <SeekBar
+                    android:paddingBottom="@dimen/preview_seekbar_padding_vertical"
+                    android:paddingTop="@dimen/preview_seekbar_padding_vertical"
                     android:id="@+id/length_seekbar"
                     android:layout_width="0dip"
                     android:layout_height="wrap_content"

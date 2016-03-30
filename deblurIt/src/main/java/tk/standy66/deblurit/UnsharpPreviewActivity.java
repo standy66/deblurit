@@ -39,16 +39,86 @@ public class UnsharpPreviewActivity extends PreviewActivity {
     }
 
     @Override
+    protected void previewShouldUpdate() {
+        if (!imageSelected)
+            return;
+        setSupportProgressBarIndeterminateVisibility(true);
+        Blur b = null;
+        float strength = ((float)Integer.parseInt(strengthValue.getText().toString()) + 1) / 100;
+        switch (blurType) {
+            case OutOfFocusBlur:
+                float radius = Float.parseFloat(radiusValue.getText().toString());
+                if (previewScaleFactor > 1)
+                    radius /= previewScaleFactor;
+                b = new OutOfFocusBlur(radius);
+                break;
+
+            case GaussianBlur:
+                radius = Float.parseFloat(radiusValue.getText().toString());
+                if (previewScaleFactor > 1)
+                    radius /= previewScaleFactor;
+                b = new GaussianBlur(radius);
+                break;
+
+            case MotionBlur:
+                float angle = (float) Math.toRadians(Integer.parseInt(angleValue.getText().toString()));
+                float length = Float.parseFloat(lengthValue.getText().toString());
+                if (previewScaleFactor > 1)
+                    length /= previewScaleFactor;
+                b = new MotionBlur(angle, length);
+                break;
+        }
+        if (b == null)
+            return;
+        Filter f = new SharpenFilter(b, strength);
+
+        ProcessingContext processingContext = new ProcessingContext(true);
+        Pipeline p = new Pipeline(scaledBitmapUri, f, processingContext);
+
+        new DeconvolutionAsyncTask(UnsharpPreviewActivity.this).execute(p);
+    }
+
+    @Override
+    protected void beginProcessing() {
+        if (!imageSelected)
+            return;
+        Blur b = null;
+        float strength = ((float)Integer.parseInt(strengthValue.getText().toString()) + 1) / 100;
+        switch (blurType) {
+            case OutOfFocusBlur:
+                float radius = Float.parseFloat(radiusValue.getText().toString());
+                b = new OutOfFocusBlur(radius);
+                break;
+
+            case GaussianBlur:
+                radius = Float.parseFloat(radiusValue.getText().toString());
+                b = new GaussianBlur(radius);
+                break;
+
+            case MotionBlur:
+                float angle = (float) Math.toRadians(Integer.parseInt(angleValue.getText().toString()));
+                float length = Float.parseFloat(lengthValue.getText().toString());
+                b = new MotionBlur(angle, length);
+                break;
+        }
+        if (b == null)
+            return;
+        Filter f = new SharpenFilter(b, strength);
+
+        ProcessingContext processingContext = new ProcessingContext(false);
+        Pipeline p = new Pipeline(choosedBitmapUri, f, processingContext);
+        startService(new Intent(UnsharpPreviewActivity.this, ProcessingService.class).putExtra("pipeline", p));
+        Intent processActivityIntent = new Intent(UnsharpPreviewActivity.this, ProgressActivity.class);
+        startActivity(processActivityIntent);
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         curPosition = 0;
         getSupportActionBar().setSelectedNavigationItem(curPosition);
         blurType = BlurType.GaussianBlur;
         reloadView();
-    }
-
-    private void postChangesToPreveiw() {
-
     }
 
     private void reloadView() {
@@ -107,6 +177,7 @@ public class UnsharpPreviewActivity extends PreviewActivity {
         });
 
         strengthSeekbar = (SeekBar)findViewById(R.id.strength_seekbar);
+        strengthSeekbar.setProgress(70);
         strengthValue = (TextView)findViewById(R.id.strength_value);
         strengthSeekbar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
             public void onStopTrackingTouch(SeekBar seekBar) {}
@@ -114,9 +185,9 @@ public class UnsharpPreviewActivity extends PreviewActivity {
             public void onProgressChanged(SeekBar seekBar, int progress,
                     boolean fromUser) {
                 strengthValue.setText(String.valueOf(progress + 1));
+                previewShouldUpdate();
             }
         });
-        strengthSeekbar.setProgress(70);
 
         if (blurType == blurType.MotionBlur) {
             angleSeekbar = (SeekBar)findViewById(R.id.angle_seekbar);
@@ -127,7 +198,7 @@ public class UnsharpPreviewActivity extends PreviewActivity {
                 public void onProgressChanged(SeekBar seekBar, int progress,
                         boolean fromUser) {
                     angleValue.setText(String.valueOf(progress));
-                    postChangesToPreveiw();
+                    previewShouldUpdate();
                 }
             });
 
@@ -140,12 +211,13 @@ public class UnsharpPreviewActivity extends PreviewActivity {
                 public void onProgressChanged(SeekBar seekBar, int progress,
                         boolean fromUser) {
                     lengthValue.setText(String.valueOf((float)progress / 10));
-                    postChangesToPreveiw();
+                    previewShouldUpdate();
                 }
             });
         } else {
             radiusSeekbar = (SeekBar)findViewById(R.id.radius_seekbar);
             radiusSeekbar.setMax(300);
+            radiusSeekbar.setProgress(80);
             radiusValue = (TextView)findViewById(R.id.radius_value);
             radiusSeekbar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
                 public void onStopTrackingTouch(SeekBar seekBar) {}
@@ -153,90 +225,13 @@ public class UnsharpPreviewActivity extends PreviewActivity {
                 public void onProgressChanged(SeekBar seekBar, int progress,
                         boolean fromUser) {
                     radiusValue.setText(String.valueOf((float)progress / 10));
+                    previewShouldUpdate();
                 }
             });
-            radiusSeekbar.setProgress(80);
         }
-
-        previewButton = (Button)findViewById(R.id.preview_button);
-        processButton = (Button)findViewById(R.id.process_button);
-        previewButton.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                if (!imageSelected)
-                    return;
-                setSupportProgressBarIndeterminateVisibility(true);
-                Blur b = null;
-                float strength = ((float)Integer.parseInt(strengthValue.getText().toString()) + 1) / 100;
-                switch (blurType) {
-                case OutOfFocusBlur:
-                    float radius = Float.parseFloat(radiusValue.getText().toString());
-                    if (previewScaleFactor > 1)
-                        radius /= previewScaleFactor;
-                    b = new OutOfFocusBlur(radius);
-                    break;
-
-                case GaussianBlur:
-                    radius = Float.parseFloat(radiusValue.getText().toString());
-                    if (previewScaleFactor > 1)
-                        radius /= previewScaleFactor;
-                    b = new GaussianBlur(radius);
-                    break;
-
-                case MotionBlur:
-                    float angle = (float) Math.toRadians(Integer.parseInt(angleValue.getText().toString()));
-                    float length = Float.parseFloat(lengthValue.getText().toString());
-                    if (previewScaleFactor > 1)
-                        length /= previewScaleFactor;
-                    b = new MotionBlur(angle, length);
-                    break;
-                }
-                if (b == null)
-                    return;
-                Filter f = new SharpenFilter(b, strength);
-
-                ProcessingContext processingContext = new ProcessingContext(true);
-                Pipeline p = new Pipeline(scaledBitmapUri, f, processingContext);
-
-                new DeconvolutionAsyncTask(UnsharpPreviewActivity.this).execute(p);
-            }
-        });
 
         previewImage = (ImageView)findViewById(R.id.preview_image);
 
-        processButton.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                if (!imageSelected)
-                    return;
-                Blur b = null;
-                float strength = ((float)Integer.parseInt(strengthValue.getText().toString()) + 1) / 100;
-                switch (blurType) {
-                case OutOfFocusBlur:
-                    float radius = Float.parseFloat(radiusValue.getText().toString());
-                    b = new OutOfFocusBlur(radius);
-                    break;
-
-                case GaussianBlur:
-                    radius = Float.parseFloat(radiusValue.getText().toString());
-                    b = new GaussianBlur(radius);
-                    break;
-
-                case MotionBlur:
-                    float angle = (float) Math.toRadians(Integer.parseInt(angleValue.getText().toString()));
-                    float length = Float.parseFloat(lengthValue.getText().toString());
-                    b = new MotionBlur(angle, length);
-                    break;
-                }
-                if (b == null)
-                    return;
-                Filter f = new SharpenFilter(b, strength);
-
-                ProcessingContext processingContext = new ProcessingContext(false);
-                Pipeline p = new Pipeline(choosedBitmapUri, f, processingContext);
-                startService(new Intent(UnsharpPreviewActivity.this, ProcessingService.class).putExtra("pipeline", p));
-                Intent processActivityIntent = new Intent(UnsharpPreviewActivity.this, ProgressActivity.class);
-                startActivity(processActivityIntent);
-            }
-        });
         if (scaledBitmap != null)
             scaledBitmap.recycle();
         initializePreview(false);

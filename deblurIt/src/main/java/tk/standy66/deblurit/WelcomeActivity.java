@@ -244,13 +244,13 @@ public class WelcomeActivity extends AppCompatActivity {
 
             public void onClick(DialogInterface dialog, int which) {
                 positiveRunnable.run();
-                gs.setMode("Auto");
+                // gs.setMode("Auto");
             }
         }).setNegativeButton(getResources().getString(R.string.mode_dialog_manual), new DialogInterface.OnClickListener() {
 
             public void onClick(DialogInterface dialog, int which) {
                 negativeRunnable.run();
-                gs.setMode("Manual");
+                // gs.setMode("Manual");
             }
         }).create().show();
     }
